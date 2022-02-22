@@ -49,10 +49,32 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Configure the rate limiters for the application.
-     *
-     * @return void
+	private function admin()
+	{
+		$this->routes(function () {
+			Route::middleware('web')
+				->prefix('admin')
+				->middleware('checkRole:admin')
+				->namespace($this->namespace)
+				->group(base_path('routes/admin.php'));
+		});
+	}
+
+
+	private function sale()
+	{
+		$this->routes(function () {
+			Route::middleware('web')
+				->prefix('sale')
+				->middleware('checkRole:sale')
+				->namespace($this->namespace)
+				->group(base_path('routes/sale.php'));
+		});
+	}
+	/**
+	 * Configure the rate limiters for the application.
+	 *
+	 * @return void
      */
     protected function configureRateLimiting()
     {

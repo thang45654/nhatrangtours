@@ -23,17 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/test', function() {
-    $folder = 'a';
-    $qr_code =  QrCode::size(300)->generate('aaa');
-    return $qr_code;
-    $dir = "uploads/${folder}/" . date('Y') . "-" . date('m') . "-" . date('d');
-    $path = $qr_code->store('public/' . $dir);
-    $storage = url('/') . Storage::url($path);
-    if ($qr_code) {
-        $storage = url('/') . str_replace('/storage', '', $storage);
-    }
-
-    return ['data' => $storage, 'status' => 200, 'message' => 'Tải ảnh thành công!'];
+    return view('layouts.app');
 
 });
 require __DIR__.'/auth.php';
