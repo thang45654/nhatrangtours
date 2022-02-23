@@ -47,14 +47,16 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
-    }
+        $this->admin();
+		$this->sale();
+	}
 
 	private function admin()
 	{
 		$this->routes(function () {
 			Route::middleware('web')
 				->prefix('admin')
-				->middleware('checkRole:admin')
+//				->middleware('checkRole:admin')
 				->namespace($this->namespace. "\\Admin")
 				->group(base_path('routes/admin.php'));
 		});
@@ -66,7 +68,7 @@ class RouteServiceProvider extends ServiceProvider
 		$this->routes(function () {
 			Route::middleware('web')
 				->prefix('sale')
-				->middleware('checkRole:sale')
+//				->middleware('checkRole:sale')
 				->namespace($this->namespace)
 				->group(base_path('routes/sale.php'));
 		});
