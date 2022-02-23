@@ -384,9 +384,7 @@
     <div class="content-wrapper container-xxl p-0">
         <div class="content-header row">
         </div>
-        <div class="content-body">
                @yield('content')
-        </div>
     </div>
 </div>
 <!-- END: Content-->
