@@ -10,78 +10,75 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * The path to the "home" route for your application.
-     *
-     * This is used by Laravel authentication to redirect users after login.
-     *
-     * @var string
-     */
-    public const HOME = '/dashboard';
+	/**
+	 * The path to the "home" route for your application.
+	 *
+	 * This is used by Laravel authentication to redirect users after login.
+	 *
+	 * @var string
+	 */
+	public const HOME = '/dashboard';
 
-    /**
-     * The controller namespace for the application.
-     *
-     * When present, controller route declarations will automatically be prefixed with this namespace.
-     *
-     * @var string|null
-     */
-     protected $namespace = 'App\\Http\\Controllers';
+	/**
+	 * The controller namespace for the application.
+	 *
+	 * When present, controller route declarations will automatically be prefixed with this namespace.
+	 *
+	 * @var string|null
+	 */
+	protected $namespace = 'App\\Http\\Controllers';
 
-    /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->configureRateLimiting();
+	/**
+	 * Define your route model bindings, pattern filters, etc.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		$this->configureRateLimiting();
 
-        $this->routes(function () {
-            Route::prefix('api')
-                ->middleware('api')
-                ->namespace($this->namespace . "\\API")
-                ->group(base_path('routes/api.php'));
+		$this->routes(function () {
+			Route::prefix('api')
+				->middleware('api')
+				->namespace($this->namespace . "\\API")
+				->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
-        });
-        $this->admin();
+			Route::middleware('web')
+				->namespace($this->namespace)
+				->group(base_path('routes/web.php'));
+		});
+		$this->admin();
 		$this->sale();
 	}
 
 	private function admin()
 	{
-		$this->routes(function () {
-			Route::middleware('web')
-				->prefix('admin')
+		Route::middleware('web')
+			->prefix('admin')
 //				->middleware('checkRole:admin')
-				->namespace($this->namespace. "\\Admin")
-				->group(base_path('routes/admin.php'));
-		});
+			->namespace($this->namespace . "\\Admin")
+			->group(base_path('routes/admin.php'));
 	}
 
 
 	private function sale()
 	{
-		$this->routes(function () {
-			Route::middleware('web')
-				->prefix('sale')
+		Route::middleware('web')
+			->prefix('sale')
 //				->middleware('checkRole:sale')
-				->namespace($this->namespace)
-				->group(base_path('routes/sale.php'));
-		});
+			->namespace($this->namespace)
+			->group(base_path('routes/sale.php'));
 	}
+
 	/**
 	 * Configure the rate limiters for the application.
 	 *
 	 * @return void
-     */
-    protected function configureRateLimiting()
-    {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
-        });
-    }
+	 */
+	protected function configureRateLimiting()
+	{
+		RateLimiter::for('api', function (Request $request) {
+			return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+		});
+	}
 }
