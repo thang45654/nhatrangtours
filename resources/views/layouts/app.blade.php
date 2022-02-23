@@ -395,7 +395,7 @@
 <div class="drag-target"></div>
 
 <!-- BEGIN: Footer-->
-@include('footer')
+@include('layouts.footer')
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
 <!-- END: Footer-->
 
