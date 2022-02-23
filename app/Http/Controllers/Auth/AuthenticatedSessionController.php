@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -23,22 +24,26 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @param \App\Http\Requests\Auth\LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        if (!$request->authenticate()) {
+            return redirect()->route('login')->with('error', 'Tài khoản hoặc mật khẩu không đúng !');
+        }
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return app(TourController::class)->index();
+
+
     }
 
     /**
      * Destroy an authenticated session.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)
