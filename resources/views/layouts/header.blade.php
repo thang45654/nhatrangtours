@@ -97,7 +97,7 @@
                                 <ul class="dropdown-menu" data-bs-popper="none">
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="app-user-view-account.html" data-bs-toggle="" data-i18n="Account"><i data-feather="circle"></i><span data-i18n="Account">Account</span></a>
                                     </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="app-user-view-security.html" data-bs-toggle="" data-i18n="Security"><i data-feather="circle"></i><span data-i18n="Security">Security</span></a>
+                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('change-password',Auth::user()->id)}}" data-bs-toggle="" data-i18n="Security"><i data-feather="circle"></i><span data-i18n="Security">Bảo mật</span></a>
                                     </li>
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="app-user-view-billing.html" data-bs-toggle="" data-i18n="Billing &amp; Plans"><i data-feather="circle"></i><span data-i18n="Billing &amp; Plans">Billing &amp; Plans</span></a>
                                     </li>

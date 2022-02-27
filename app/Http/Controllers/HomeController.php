@@ -18,4 +18,5 @@ class HomeController extends Controller
 
         return app(PartnerController::class)->index();
     }
+
 }
