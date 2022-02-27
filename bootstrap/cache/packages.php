@@ -17,6 +17,24 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'kreait/laravel-firebase' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Kreait\\Laravel\\Firebase\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Firebase' => 'Kreait\\Laravel\\Firebase\\Facades\\Firebase',
+    ),
+  ),
+  'laravel-notification-channels/fcm' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NotificationChannels\\Fcm\\FcmServiceProvider',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 
