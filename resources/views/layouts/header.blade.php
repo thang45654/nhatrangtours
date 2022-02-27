@@ -36,12 +36,12 @@
         <!-- include /includes/mixins-->
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="index.html" data-bs-toggle="dropdown"><i data-feather="home"></i><span data-i18n="Dashboards">Dashboards</span></a>
-                <ul class="dropdown-menu" data-bs-popper="none">
-                    <li class="active" data-menu=""><a class="dropdown-item d-flex align-items-center" href="dashboard-analytics.html" data-bs-toggle="" data-i18n="Analytics"><i data-feather="activity"></i><span data-i18n="Analytics">Analytics</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="dashboard-ecommerce.html" data-bs-toggle="" data-i18n="eCommerce"><i data-feather="shopping-cart"></i><span data-i18n="eCommerce">eCommerce</span></a>
-                    </li>
-                </ul>
+{{--                <ul class="dropdown-menu" data-bs-popper="none">--}}
+{{--                    <li class="active" data-menu=""><a class="dropdown-item d-flex align-items-center" href="dashboard-analytics.html" data-bs-toggle="" data-i18n="Analytics"><i data-feather="activity"></i><span data-i18n="Analytics">Analytics</span></a>--}}
+{{--                    </li>--}}
+{{--                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="dashboard-ecommerce.html" data-bs-toggle="" data-i18n="eCommerce"><i data-feather="shopping-cart"></i><span data-i18n="eCommerce">eCommerce</span></a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
             </li>
             <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="package"></i><span data-i18n="Apps">Apps</span></a>
                 <ul class="dropdown-menu" data-bs-popper="none">
@@ -111,121 +111,25 @@
                     </li>
                 </ul>
             </li>
-            <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="layers"></i><span data-i18n="User Interface">User Interface</span></a>
-                <ul class="dropdown-menu" data-bs-popper="none">
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ui-typography.html" data-bs-toggle="" data-i18n="Typography"><i data-feather="type"></i><span data-i18n="Typography">Typography</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ui-feather.html" data-bs-toggle="" data-i18n="Feather"><i data-feather="eye"></i><span data-i18n="Feather">Feather</span></a>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item d-flex align-items-center dropdown-toggle" href="#" data-bs-toggle="dropdown" data-i18n="Cards"><i data-feather="credit-card"></i><span data-i18n="Cards">Cards</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="card-basic.html" data-bs-toggle="" data-i18n="Basic"><i data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="card-advance.html" data-bs-toggle="" data-i18n="Advance"><i data-feather="circle"></i><span data-i18n="Advance">Advance</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="card-statistics.html" data-bs-toggle="" data-i18n="Statistics"><i data-feather="circle"></i><span data-i18n="Statistics">Statistics</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="card-analytics.html" data-bs-toggle="" data-i18n="Analytics"><i data-feather="circle"></i><span data-i18n="Analytics">Analytics</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="card-actions.html" data-bs-toggle="" data-i18n="Card Actions"><i data-feather="circle"></i><span data-i18n="Card Actions">Card Actions</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item d-flex align-items-center dropdown-toggle" href="#" data-bs-toggle="dropdown" data-i18n="Components"><i data-feather="briefcase"></i><span data-i18n="Components">Components</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-accordion.html" data-bs-toggle="" data-i18n="Accordion"><i data-feather="circle"></i><span data-i18n="Accordion">Accordion</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-alerts.html" data-bs-toggle="" data-i18n="Alerts"><i data-feather="circle"></i><span data-i18n="Alerts">Alerts</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-avatar.html" data-bs-toggle="" data-i18n="Avatar"><i data-feather="circle"></i><span data-i18n="Avatar">Avatar</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-badges.html" data-bs-toggle="" data-i18n="Badges"><i data-feather="circle"></i><span data-i18n="Badges">Badges</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-breadcrumbs.html" data-bs-toggle="" data-i18n="Breadcrumbs"><i data-feather="circle"></i><span data-i18n="Breadcrumbs">Breadcrumbs</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-buttons.html" data-bs-toggle="" data-i18n="Buttons"><i data-feather="circle"></i><span data-i18n="Buttons">Buttons</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-carousel.html" data-bs-toggle="" data-i18n="Carousel"><i data-feather="circle"></i><span data-i18n="Carousel">Carousel</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-collapse.html" data-bs-toggle="" data-i18n="Collapse"><i data-feather="circle"></i><span data-i18n="Collapse">Collapse</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-divider.html" data-bs-toggle="" data-i18n="Divider"><i data-feather="circle"></i><span data-i18n="Divider">Divider</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-dropdowns.html" data-bs-toggle="" data-i18n="Dropdowns"><i data-feather="circle"></i><span data-i18n="Dropdowns">Dropdowns</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-list-group.html" data-bs-toggle="" data-i18n="List Group"><i data-feather="circle"></i><span data-i18n="List Group">List Group</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-modals.html" data-bs-toggle="" data-i18n="Modals"><i data-feather="circle"></i><span data-i18n="Modals">Modals</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-navs-component.html" data-bs-toggle="" data-i18n="Navs Component"><i data-feather="circle"></i><span data-i18n="Navs Component">Navs Component</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-offcanvas.html" data-bs-toggle="" data-i18n="Offcanvas"><i data-feather="circle"></i><span data-i18n="Offcanvas">Offcanvas</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-pagination.html" data-bs-toggle="" data-i18n="Pagination"><i data-feather="circle"></i><span data-i18n="Pagination">Pagination</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-pill-badges.html" data-bs-toggle="" data-i18n="Pill Badges"><i data-feather="circle"></i><span data-i18n="Pill Badges">Pill Badges</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-pills-component.html" data-bs-toggle="" data-i18n="Pills Component"><i data-feather="circle"></i><span data-i18n="Pills Component">Pills Component</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-popovers.html" data-bs-toggle="" data-i18n="Popovers"><i data-feather="circle"></i><span data-i18n="Popovers">Popovers</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-progress.html" data-bs-toggle="" data-i18n="Progress"><i data-feather="circle"></i><span data-i18n="Progress">Progress</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-spinner.html" data-bs-toggle="" data-i18n="Spinner"><i data-feather="circle"></i><span data-i18n="Spinner">Spinner</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-tabs-component.html" data-bs-toggle="" data-i18n="Tabs Component"><i data-feather="circle"></i><span data-i18n="Tabs Component">Tabs Component</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-timeline.html" data-bs-toggle="" data-i18n="Timeline"><i data-feather="circle"></i><span data-i18n="Timeline">Timeline</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-bs-toast.html" data-bs-toggle="" data-i18n="Toasts"><i data-feather="circle"></i><span data-i18n="Toasts">Toasts</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="component-tooltips.html" data-bs-toggle="" data-i18n="Tooltips"><i data-feather="circle"></i><span data-i18n="Tooltips">Tooltips</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item d-flex align-items-center dropdown-toggle" href="#" data-bs-toggle="dropdown" data-i18n="Extensions"><i data-feather="box"></i><span data-i18n="Extensions">Extensions</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-sweet-alerts.html" data-bs-toggle="" data-i18n="Sweet Alert"><i data-feather="circle"></i><span data-i18n="Sweet Alert">Sweet Alert</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-blockui.html" data-bs-toggle="" data-i18n="Block UI"><i data-feather="circle"></i><span data-i18n="Block UI">BlockUI</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-toastr.html" data-bs-toggle="" data-i18n="Toastr"><i data-feather="circle"></i><span data-i18n="Toastr">Toastr</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-sliders.html" data-bs-toggle="" data-i18n="Sliders"><i data-feather="circle"></i><span data-i18n="Sliders">Sliders</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-drag-drop.html" data-bs-toggle="" data-i18n="Drag &amp; Drop"><i data-feather="circle"></i><span data-i18n="Drag &amp; Drop">Drag &amp; Drop</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-tour.html" data-bs-toggle="" data-i18n="Tour"><i data-feather="circle"></i><span data-i18n="Tour">Tour</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-clipboard.html" data-bs-toggle="" data-i18n="Clipboard"><i data-feather="circle"></i><span data-i18n="Clipboard">Clipboard</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-media-player.html" data-bs-toggle="" data-i18n="Media player"><i data-feather="circle"></i><span data-i18n="Media player">Media Player</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-context-menu.html" data-bs-toggle="" data-i18n="Context Menu"><i data-feather="circle"></i><span data-i18n="Context Menu">Context Menu</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-swiper.html" data-bs-toggle="" data-i18n="swiper"><i data-feather="circle"></i><span data-i18n="swiper">Swiper</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-tree.html" data-bs-toggle="" data-i18n="Tree"><i data-feather="circle"></i><span data-i18n="Tree">Tree</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-ratings.html" data-bs-toggle="" data-i18n="Ratings"><i data-feather="circle"></i><span data-i18n="Ratings">Ratings</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="ext-component-i18n.html" data-bs-toggle="" data-i18n="l18n"><i data-feather="circle"></i><span data-i18n="l18n">l18n</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item d-flex align-items-center dropdown-toggle" href="#" data-bs-toggle="dropdown" data-i18n="Page Layouts"><i data-feather="layout"></i><span data-i18n="Page Layouts">Page Layouts</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-full.html" data-bs-toggle="" data-i18n="Layout Full"><i data-feather="circle"></i><span data-i18n="Layout Full">Layout Full</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-without-menu.html" data-bs-toggle="" data-i18n="Without Menu"><i data-feather="circle"></i><span data-i18n="Without Menu">Without Menu</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-empty.html" data-bs-toggle="" data-i18n="Layout Empty"><i data-feather="circle"></i><span data-i18n="Layout Empty">Layout Empty</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-blank.html" data-bs-toggle="" data-i18n="Layout Blank"><i data-feather="circle"></i><span data-i18n="Layout Blank">Layout Blank</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+
+            <li class="nav-item">
+
+{{--                <a class="nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown">--}}
+
+{{--                    Quản lý tour--}}
+
+{{--                </a>--}}
+
+
+                <a class=" d-flex align-items-center" href="{{ route('tours.index')}}" data-bs-toggle="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span data-i18n="User Interface">Quản lý tour</span>
+                </a>
+
             </li>
             <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Forms &amp; Tables</span></a>
                 <ul class="dropdown-menu" data-bs-popper="none">

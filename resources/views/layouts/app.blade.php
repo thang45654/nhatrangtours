@@ -403,6 +403,7 @@
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/app-assets/vendors/js/ui/jquery.sticky.js"></script>
 {{--<script src="/app-assets/vendors/js/charts/apexcharts.min.js"></script>--}}
 {{--<script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>--}}

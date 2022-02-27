@@ -23,6 +23,7 @@ class CreateToursTable extends Migration
             $table->date('end_date');
             $table->text('detail');
             $table->tinyInteger('discount_percent');
+            $table->tinyInteger('discount_percent_customer');
             $table->softDeletes();
             $table->timestamps();
         });
