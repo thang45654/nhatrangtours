@@ -9,3 +9,5 @@ Route::get('edit-tours', [\App\Http\Controllers\Admin\TourController::class, 'sh
     ->name('tour.edit');
 
 Route::get('delete/{id}', '\App\Http\Controllers\Admin\TourController@delete')->name('admin.tours.delete');
+
+Route::resource('orders', OrderController::class);

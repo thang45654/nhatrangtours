@@ -32,12 +32,7 @@ class AuthenticatedSessionController extends Controller
         if (!$request->authenticate()) {
             return redirect()->route('login')->with('error', 'Tài khoản hoặc mật khẩu không đúng !');
         }
-
         $request->session()->regenerate();
-
-        return app(TourController::class)->index();
-
-
     }
 
     /**

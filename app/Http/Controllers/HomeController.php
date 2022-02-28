@@ -10,6 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
+    	if (!auth('api')->check()) {
+			return redirect()->route('login');
+		}
         $role = auth()->user()->role;
 
         if ($role === 'admin') {

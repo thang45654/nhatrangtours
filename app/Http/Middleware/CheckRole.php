@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Middleware\Authenticate;
 
-class CheckRole extends Authenticate
+class CheckRole
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class CheckRole extends Authenticate
      */
     public function handle($request, Closure $next, $role)
     {
-		if (!auth()->user()->role !== $role) {
+		if ($request->user()->role !== $role) {
 			return abort(403);
 		}
         return $next($request);
