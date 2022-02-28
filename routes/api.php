@@ -25,6 +25,7 @@ Route::prefix("/v1")->middleware('auth.api')->group(function() {
 	Route::get('notifications', 'NotificationController@getNotification');
 	Route::get('introduction-history', 'StatisticController@getIntroductionHistory');
 	Route::post('fcm-token', 'AuthController@saveFcmToken');
+	Route::post('remove-fcm', 'AuthController@removeFcm');
 	Route::get('test', 'NotificationController@sendNotification');
 });
 

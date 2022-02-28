@@ -9,4 +9,6 @@ class Device extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['partner_id', 'fcm_token', 'timezone', 'device_name', 'device_model', 'app_version', 'os_version'];
+
 }
