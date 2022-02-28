@@ -35,6 +35,7 @@ class PaymentHistoryController extends Controller
 			->withCasts(['payment_date' => 'datetime:d-m-Y H:i'])
 			->get();
 
+
 		return $this->sendResponse($paymentHistories, 'Lấy dữ liệu thành công');
 
 	}

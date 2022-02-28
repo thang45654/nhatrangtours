@@ -29,7 +29,7 @@ class StatisticController extends Controller
 
 		$data = [
 			'day_revenue' => $revenue,
-			'orders' => $orders,
+			'history' => $orders,
 			'received_money' => $user->given_money,
 			'missing_money' => $user->missing_money,
 		];

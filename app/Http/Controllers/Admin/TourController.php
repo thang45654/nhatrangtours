@@ -33,9 +33,6 @@ class TourController extends Controller
 
     public function store(AdminRequestTours $request)
     {
-
-
-
         $data = $request->except('_token');
         $data['slug'] = Str::slug($request->name);
 
