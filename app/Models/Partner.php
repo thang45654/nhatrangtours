@@ -54,8 +54,13 @@ class Partner extends Authenticatable
 		return $this->hasMany(Device::class);
 	}
 
+	public function getDeviceTokens()
+	{
+		return $this->hasMany(Device::class);
+	}
+
 	public function routeNotificationForFcm()
 	{
-		return $this->getDeviceTokens();
+		return $this->getDeviceTokens()->pluck('fcm_token')->toArray();
 	}
 }

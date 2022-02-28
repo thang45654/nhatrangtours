@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Device;
 use App\Models\Partner;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
@@ -95,22 +96,37 @@ class AuthController extends Controller
 	public function saveFcmToken(Request $request)
 	{
 		$validate = Validator::make($request->all(),[
-			'fcm_token' => 'required|string'
+			'fcm_token' => 'required|string|unique:devices,fcm_token'
 		], [
 			'fcm_token.required' => 'Fcm token không được để trống',
 			'fcm_token.string' => 'Fcm token phải là string',
+			'fcm_token.unique' => 'Fcm này đã được lưu'
 		]);
 		if ($validate->fails()) {
 			return $this->response($validate->errors(), 400, $validate->errors()->first());
 		}
 
-		$user = auth('api')->user();
-
-		$user->fcm_token = $request->get('fcm_token');
-		$user->save();
-
-		return $this->sendResponse($user, 'Lưu fcm token thành công');
+		$data = $request->all();
+		$data['partner_id'] = auth('api')->user()->id;
+		$device = Device::create($data);
+		return $this->sendResponse($device, 'Lưu fcm token thành công');
 	}
 
+	public function removeFcm(Request $request)
+	{
+		$validate = Validator::make($request->all(),[
+			'fcm_token' => 'required|string|exists:devices,fcm_token'
+		], [
+			'fcm_token.required' => 'Fcm token không được để trống',
+			'fcm_token.string' => 'Fcm token phải là string',
+			'fcm_token.exists' => 'Fcm token không hợp lệ'
+		]);
+		if ($validate->fails()) {
+			return $this->response($validate->errors(), 400, $validate->errors()->first());
+		}
+
+		auth('api')->user()->devices()->where('fcm_token', $request->get('fcm_token'))->delete();
+		return $this->sendResponse([], 'Xóa fcm token thành công');
+	}
 
 }
