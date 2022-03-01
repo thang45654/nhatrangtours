@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\TourController;
 use Illuminate\Http\Request;
 
@@ -16,6 +16,6 @@ class HomeController extends Controller
             return app(TourController::class)->index();
         }
 
-        return app(PartnerController::class)->index();
+        return app(PartnersController::class)->index();
     }
 }

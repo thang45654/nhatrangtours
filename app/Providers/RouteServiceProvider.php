@@ -53,20 +53,17 @@ class RouteServiceProvider extends ServiceProvider
 
 	private function admin()
 	{
-		Route::middleware('web')
+		Route::middleware(['web', 'auth','role:admin'])
 			->prefix('admin')
-				->middleware('checkRole:admin')
-			->namespace($this->namespace . "\\Admin")
+            ->name('admin.')
 			->group(base_path('routes/admin.php'));
 	}
 
 
 	private function sale()
 	{
-		Route::middleware('web')
+		Route::middleware(['web', 'auth','role:sale'])
 			->prefix('sale')
-				->middleware('checkRole:sale')
-			->namespace($this->namespace)
 			->group(base_path('routes/sale.php'));
 	}
 

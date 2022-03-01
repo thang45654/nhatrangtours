@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PartnersController;
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -20,8 +21,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
-Route::get('/test', function() {
-    return view('layouts.app');
-
-});
+require __DIR__.'/admin.php';
+require __DIR__.'/sale.php';
 require __DIR__.'/auth.php';

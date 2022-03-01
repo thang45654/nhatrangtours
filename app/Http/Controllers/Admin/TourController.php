@@ -11,5 +11,8 @@ use Illuminate\Support\Facades\Validator;
 
 class TourController extends Controller
 {
-
+    public function index()
+    {
+        
+    }
 }

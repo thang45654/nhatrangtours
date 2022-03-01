@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Response;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
     protected function response($dataResponse = [], $statusCode = 200, $message = '')
     {
         if (is_numeric($dataResponse)) {
@@ -43,7 +45,6 @@ class Controller extends BaseController
         if (!empty($extraData)) {
             $response = array_merge($response, $extraData);
         }
-
         return $response;
     }
 
@@ -54,7 +55,6 @@ class Controller extends BaseController
             'data' => $data,
             'message' => $message,
         ];
-
         return $response;
     }
 
