@@ -13,8 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-    }
+		require_once app_path('Helper/HelperFunction.php');
+	}
 
     /**
      * Bootstrap any application services.

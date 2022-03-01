@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PartnersController;
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\Admin\PartnerController;
@@ -17,12 +18,17 @@ use App\Http\Controllers\Admin\PartnerController;
 
 Route::get('/', 'HomeController@index');
 
+Route::middleware('auth')->prefix('api')->name('api.')->group(function() {
+	Route::get('tours', [ApiController::class, 'getTours']);
+	Route::post('check-partner', [ApiController::class, 'checkPartner']);
+	Route::post('create-order', [ApiController::class, 'createOrder']);
+	Route::get('get-order-detail', [ApiController::class, 'getOrderDetail']);
+	Route::post('remove-order', [ApiController::class, 'removeOrder']);
+
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
-
-require __DIR__.'/admin.php';
-require __DIR__.'/sale.php';
 require __DIR__.'/auth.php';
 
 //Route::get('/admin/partners',[PartnerController::class,'index']);

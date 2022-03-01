@@ -21,3 +21,11 @@ Route::group(['prefix'=>'partners'],function(){
 
     Route::get('delete/{id}',[PartnersController::class,'delete'])->name('admin.partners.delete');
 });
+Route::resource('tours', TourController::class);
+
+Route::get('edit-tours', [TourController::class, 'showForm'])->name('tour.edit');
+
+Route::get('delete/{id}', [TourController::class,'delete'])->name('admin.tours.delete');
+
+Route::resource('orders', OrderController::class);
+Route::post('create-order', [OrderController::class, 'createOrder']);

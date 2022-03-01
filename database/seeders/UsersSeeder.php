@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -29,16 +30,16 @@ class UsersSeeder extends Seeder
 
         $array = [
             ['fullname' => 'Vũ Văn Duy', 'username' => 'duycute', 'email' => 'duy@gmail.com', 'link_img' => 'default.png',
-                'phone' => '03336999', 'role' => '1', 'api_token' => $api_token2,
+                'phone' => '03336999', 'role' => '1', 'api_token' => $api_token2, 'password' => Hash::make(123456),
                 'qr_code' => QrCode::size(300)->generate(url('/') . '?referral_code=' . $referral_code1),
                 'referral_code' => $referral_code1
                 ],
 
-            ['fullname' => 'Kien Le Van', 'username' => 'kienlevan', 'email' => 'kienlevan@gmail.com', 'link_img' => 'default.png',
+            ['fullname' => 'Kien Le Van', 'username' => 'kienlevan', 'email' => 'kienlevan@gmail.com', 'link_img' => 'default.png', 'password' => Hash::make(123456),
                 'phone' => '033369999', 'role' => '1', 'api_token' => $api_token1, 'qr_code' => QrCode::size(300)->generate(url('/') . '?referral_code=' . $referral_code2),
                 'referral_code' => $referral_code2],
 
-            ['fullname' => 'Vũ Duy', 'username' => 'duyduy', 'email' => 'duy123@gmail.com', 'link_img' => 'default.png',
+            ['fullname' => 'Vũ Duy', 'username' => 'duyduy', 'email' => 'duy123@gmail.com', 'link_img' => 'default.png', 'password' => Hash::make(123456),
                 'phone' => '0333699', 'role' => '0', 'api_token' => $api_token3, 'qr_code' => QrCode::size(300)->generate(url('/') . '?referral_code=' . $referral_code3),
                 'referral_code' => $referral_code3],
 

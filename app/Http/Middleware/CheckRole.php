@@ -18,9 +18,13 @@ class CheckRole
      */
     public function handle($request, Closure $next, $role)
     {
-        if (!in_array($role,Role::ROLES)) {
-            return abort(403);
-        }
+    	$user = $request->user();
+    	if (!$user) {
+    		return redirect()->route('login');
+		}
+		if ($user->role !== $role) {
+			return abort(403);
+		}
         return $next($request);
     }
 }
