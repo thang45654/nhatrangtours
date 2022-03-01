@@ -108,7 +108,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- list and filter start -->
                     <div class="card">
                         <div class="card-body pd-0">
@@ -158,6 +157,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{--THÊM--}}
                         <div class="modal fade text-start" id="order-modal" tabindex="-1"
                              aria-labelledby="myModalLabel33" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -240,6 +240,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{--SỬA--}}
                         <div class="modal fade text-start" id="order-modal-update" tabindex="-1"
                              aria-labelledby="myModalLabel33" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -338,7 +339,6 @@
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
     <style>
         .icon {
             width: 1.4rem;
@@ -370,16 +370,16 @@
 
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function () {// đợi web load xong thì thực hiện == window.onload
             const modal = $('#order-modal'),
                 basicPickr = modal.find('input[name=time_start]'),
-                modalUpdate = $('#order-modal-update');
+                modalUpdate = $('#order-modal-update');// khai báo biến để tiền dùng về sau
             let totalPrice = 0, selectedTour = null, discount_minus = false;
             basicPickr.flatpickr({
                 enableTime: true,
                 dateFormat: "d-m-Y H:i",
-            })
-            var dtUserTable = $('.user-list-table');
+            })// setup bộ chọn thời gian có chọn giờ
+            var dtUserTable = $('.user-list-table');// khai báo và sử dụng datatable
             dtUserTable.DataTable({
                 paging: false,
                 dom:
@@ -390,18 +390,18 @@
                     '<"d-flex justify-content-between mx-2 row mb-1"' +
                     '<"col-sm-12 col-md-6"i>' +
                     '<"col-sm-12 col-md-6"p>' +
-                    '>',
+                    '>',// tạo template cho datatable
                 language: {
-                    sLengthMenu: 'Show _MENU_',
-                    search: 'Tìm kiếm',
+                    sLengthMenu: 'Show _MENU_',// hiển thị bộ chọn giới hạn bản ghi trên 1 trang--- _MENU_ sẽ được hiểu là bộ chọn select
+                    search: 'Tìm kiếm',// việt hóa
                     paginate: {
                         // remove previous & next text from pagination
-                        previous: '&nbsp;',
-                        next: '&nbsp;'
+                        previous: '&nbsp;',// kí hiệu nút trang trước
+                        next: '&nbsp;'// ký hiệu nút trang tiếp theo
                     }
                 },
                 // Buttons with Dropdown
-                buttons: [
+                buttons: [// style cho nút bấm thêm đơn hàng
                     {
                         text: 'Thêm đơn hàng mới',
                         className: 'add-new btn btn-primary',
@@ -413,9 +413,11 @@
                 ],
                 // For responsive popup
             });
-            $("div.table-title").html('<b>Custom tool bar! Text/images etc.</b>');
+            //???
+            $("div.table-title").html('<b>Custom tool bar! Text/images etc.</b>');// thay đổi nội dung tiêu đề bảng
 
             let isValidCode = 0;
+            // hỏi lại khi nào thì kích hoạt sự kiện input
             modal.find('input[name="referral_code"]').on('input', delay(function () {
                 hideValidation(modal, 'input');
                 const referral_code = $(this).val();
@@ -439,8 +441,10 @@
                 })
             }))
             modal.on('show.bs.modal', function () {
+                // gọi api
                 getTours().then(data => {
                     const tours = data.data.data;
+                    // hiển thị dữ liệu
                     tours.forEach((tour) => {
                         modal.find('select[name="tour_id"]').empty();
                         modal.find('select[name="tour_id"]').append(`<option value="${tour.id}">${tour.name}</option>`)
@@ -461,12 +465,14 @@
                 })
 
             })
+            // thêm đơn hàng hoặc cập nhật đơn hàng > xem lại code
             modal.find('#submit-order').on('click', function () {
                 const data = getDataInForm(modal, 'input', 'select', 'textarea');
                 storeOrder(data).then(resp => {
                     let response = resp.data;
+                    // 422// lỗi validate
                     if (response.status !== 200) {
-                        $.each(res.data, function (index, val) {
+                        $.each(resp.data, function (index, val) {
                             modal.find('input[name=' + index + '],select[name=' + index + ']')
                                 .addClass('is-invalid').parent().append('<div class="invalid-feedback">' +
                                 '<strong>' + val[0] + '</strong>' +
@@ -476,7 +482,7 @@
                     }
                 })
             })
-
+            // hiển thị thông tin dfdown hàng vừa bấm chỉnh sửa
             modalUpdate.on('show.bs.modal', function (e) {
                 const order_id = $(e.relatedTarget).data('id');
                 getTours().then(data => {
@@ -508,6 +514,7 @@
                     }
                 })
             })
+            // xóa đơen hàng
             $('.delete-button').on('click', function(e) {
                 const order_id = $(this).attr('data-id');
 
@@ -520,7 +527,6 @@
                                 location.reload();
                                 return -1;
                             }
-
                             if (code === ERROR) {
                                 errorAlert(message);
                             }
@@ -529,6 +535,5 @@
                 });
             })
         })
-
     </script>
 @endpush

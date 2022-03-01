@@ -17,7 +17,7 @@ class PartnersController extends Controller
 {
     public function index()
     {
-        $partners = Partner::paginate(2);
+        $partners = Partner::paginate(10);
         return view('pages.partners.index', compact('partners'));
     }
     public function show($id)
@@ -33,23 +33,17 @@ class PartnersController extends Controller
         $id = Partner::insertGetId($data);
         return redirect()->route('admin.partners.index')->with('success', 'Thêm thành công');
     }
-//    public function  edit($id){
-//        $partner = Partner::find($id);
-////        return view('pages.partners.edit', compact('partner'));
-//        return $this->response($partner, 200);
-//    }
+
     public function  edit(Request $request){
         $partner = Partner::find($request->id);
 //        return view('pages.partners.edit', compact('partner'));
         return $this->response($partner, 200);
     }
     public function  update(PartnersRequest $request, $id){
-        dd('ok');
         $data = $request->except('_token');
         $partner = Partner::find($id)->update($data);
         return $this->sendResponse($partner, 'Chỉnh sửa partner thành công');
     }
-
     public function delete($id){
         $partner = Partner::find($id);
         if($partner) $partner->delete();

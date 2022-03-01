@@ -70,13 +70,13 @@
                 </div>
                 <div class="mb-1">
                     <label class="form-label" for="user-role">Phương thức thanh toán</label>
-                    <select id="payMethod" name="payment" class="select2 form-select">
+                    <select id="payMethodEdit" name="payment" class="select2 form-select">
                         <option value="0">---Vui lòng nhập----</option>
                         <option value="1">Chuyển khoản</option>
                         <option value="2">Tien mat</option>
                     </select>
                 </div>
-                <div class="mb-1" id="bankInfo" style="display: none">
+                <div class="mb-1" id="bankInfoEdit" style="display: none">
                     <label class="form-label" for="basic-icon-default-company">Ngân hàng</label>
                     <input type="text" id="basic-icon-default-company" class="form-control dt-contact"
                            placeholder="Vui lòng nhập" name="bank"/>
@@ -90,13 +90,23 @@
         </form>
     </div>
 </div>
+<script src="../../app-assets/vendors/js/jquery/jquery.min.js"></script>
 <script>
+
     $("#payMethod").change(function () {
         const val = $(this).val();
         if (val == 1) {
             $("#bankInfo").show();
         } else {
             $("#bankInfo").hide();
+        }
+    });
+    $("#payMethodEdit").change(function () {
+        const val = $(this).val();
+        if (val == 1) {
+            $("#bankInfoEdit").show();
+        } else {
+            $("#bankInfoEdit").hide();
         }
     });
 </script>
@@ -196,8 +206,6 @@
                     alert(message);
                 }
             }).catch(err => console.error(err))
-
-
         });
     });
 </script>
