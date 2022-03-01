@@ -225,6 +225,7 @@
 
             <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
 
+
             </li>
             <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="file-text"></i><span data-i18n="Pages">Pages</span></a>
                 <ul class="dropdown-menu" data-bs-popper="none">

@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\PartnersController;
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-
+use App\Http\Controllers\Admin\PartnerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +24,6 @@ Route::get('/dashboard', function () {
 require __DIR__.'/admin.php';
 require __DIR__.'/sale.php';
 require __DIR__.'/auth.php';
+
+//Route::get('/admin/partners',[PartnerController::class,'index']);
+//Route::get('/admin/partners/s',[PartnerController::class,'show']);
