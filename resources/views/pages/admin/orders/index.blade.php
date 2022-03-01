@@ -19,9 +19,8 @@
                                     <h3 class="mb-75 pt-50">
                                         <a href="#">{{$total_revenue}}</a>
                                     </h3>
-                                    <button type="button" class="btn btn-primary">Thêm đơn hàng mới</button>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#order-modal">Thêm đơn hàng mới</button>
 
-                                    {{--                                    <button   type="button" id="btn-add-modal" data-toggle="modal" data-target="#addscore" class="btn btn-primary me-1 waves-effect waves-float waves-light ">tạo tour mới</button>--}}
                                     <img src="../../../app-assets/images/illustration/badge.svg"
                                          class="congratulation-medal" alt="medal pic"/>
                                 </div>
@@ -133,22 +132,29 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($orders as $order)
+                                @foreach($orders as $index => $order)
                                     <tr>
-                                        <td>{{$order->id}}</td>
-                                        <td>{{$order->time_start}}</td>
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{$order->time_start_travel}}</td>
                                         <td>{{@$order->tour->name ?? 'Không có'}}</td>
                                         <td>{{@$order->customer->name ?? 'Không có'}}</td>
                                         <td>{{$order->quatity}}</td>
                                         <td>{{$order->total_price}}</td>
                                         <td class="d-flex justify-center">
-                                            <i class="icon"
-                                               data-id="{{ $order->id }}"
-                                               data-feather='eye'></i>
-                                            <i class="icon" id="btn-edit-modal"
-                                               data-id="{{ $order->id }}" data-bs-toggle="modal"
-                                               data-bs-target="#order-modal-update" data-feather='edit-2'></i>
-                                            <div class="delete-button cursor-pointer" data-id="{{ $order->id }}" >
+                                            <div class="show-button cursor-pointer" id="btn-edit-modal" >
+                                                <a href="{{route('admin.orders.show', $order->id)}}" style="color: #6e6b7b">
+                                                    <i class="icon"
+                                                       data-id="{{ $order->id }}"
+                                                       data-feather='eye'></i>
+                                                </a>
+                                            </div>
+                                            <div class="edit-button cursor-pointer" id="btn-edit-modal"
+                                                 data-bs-toggle="modal" data-bs-target="#order-modal-update"
+                                                 data-id="{{ $order->id }}">
+                                                <i class="icon"
+                                                   data-feather='edit-2'></i>
+                                            </div>
+                                            <div class="delete-button cursor-pointer" data-id="{{ $order->id }}">
                                                 <i class="mr-2 icon" data-feather='trash'></i>
                                             </div>
 
@@ -197,7 +203,7 @@
                                                 <div class="col-md-12 col-sm-12">
                                                     <label>Số lượng vé: </label>
                                                     <div class="mb-1">
-                                                        <input type="number" min="0" name="quantity"
+                                                        <input type="number" min="0" name="quatity"
                                                                placeholder="Vui lòng nhập" class="form-control"/>
                                                     </div>
                                                 </div>
@@ -280,7 +286,7 @@
                                                 <div class="col-md-12 col-sm-12">
                                                     <label>Số lượng vé: </label>
                                                     <div class="mb-1">
-                                                        <input type="number" min="0" name="quantity"
+                                                        <input type="number" min="0" name="quatity"
                                                                placeholder="Vui lòng nhập" class="form-control"/>
                                                     </div>
                                                 </div>
@@ -433,7 +439,7 @@
                         '<strong>' + message + '</strong>' +
                         '</div>');
 
-                    totalPrice -= (totalPrice* selectedTour.discount_percent_customer/100);
+                    totalPrice -= (totalPrice * selectedTour.discount_percent_customer / 100);
                     modal.find('#total-price').text(`Thành tiền: ${formatNumber(totalPrice)} VNĐ`);
                     return -1;
                 })
@@ -443,10 +449,10 @@
                     const tours = data.data.data;
                     tours.forEach((tour) => {
                         modal.find('select[name="tour_id"]').empty();
-                        modal.find('select[name="tour_id"]').append(`<option value="${tour.id}">${tour.name}</option>`)
+                        modal.find('select[name="tour_id"]').append(`<option value="">Chọn Tour</option><option value="${tour.id}">${tour.name}</option>`)
                     })
 
-                    modal.find('input[name="quantity"]').on('input', function () {
+                    modal.find('input[name="quatity"]').on('input', function () {
                         const tickets = $(this).val();
 
                         selectedTour = tours.filter(tour => tour.id === parseInt(modal.find('select[name="tour_id"]').val()))
@@ -464,15 +470,22 @@
             modal.find('#submit-order').on('click', function () {
                 const data = getDataInForm(modal, 'input', 'select', 'textarea');
                 storeOrder(data).then(resp => {
-                    let response = resp.data;
-                    if (response.status !== 200) {
-                        $.each(res.data, function (index, val) {
+                    let {data, code, message} = resp.data;
+                    if (code === ERROR) {
+                        $.each(data, function (index, val) {
                             modal.find('input[name=' + index + '],select[name=' + index + ']')
                                 .addClass('is-invalid').parent().append('<div class="invalid-feedback">' +
                                 '<strong>' + val[0] + '</strong>' +
                                 '</div>');
-                        })
-                        return;
+                        });
+                        return -1;
+                    }
+
+                    if (code === SUCCESS) {
+                        modal.modal('hide');
+                        successAlert(message);
+                        location.reload();
+                        return -1;
                     }
                 })
             })
@@ -482,35 +495,34 @@
                 getTours().then(data => {
                     const tours = data.data.data;
                     tours.forEach((tour) => {
-                        modal.find('select[name="tour_id"]').empty();
-                        modal.find('select[name="tour_id"]').append(`<option value="${tour.id}">${tour.name}</option>`)
+                        modalUpdate.find('select[name="tour_id"]').empty();
+                        modalUpdate.find('select[name="tour_id"]').append(`<option value="">Chọn Tour</option><option value="${tour.id}">${tour.name}</option>`)
                     })
 
-                    modal.find('input[name="quantity"]').on('input', function () {
+                    modalUpdate.find('input[name="quatity"]').on('input', function () {
 
                         const tickets = $(this).val();
 
-                        const selectedTour = tours.filter(tour => tour.id === modal.find('select[name="tour_id"]').val())
+                        const selectedTour = tours.filter(tour => tour.id === modalUpdate.find('select[name="tour_id"]').val())
 
                         if (selectedTour.length) {
                             const totalPrice = parseInt(tickets) * selectedTour.price - (parseInt(tickets) * selectedTour.price * (isValidCode ? selectedTour.discount_percent_customer : 0));
                             console.log(totalPrice);
 
-                            modal.find('#total-price').text(formatNumber(totalPrice));
+                            modalUpdate.find('#total-price').text(formatNumber(totalPrice));
                         }
                     })
                 })
 
                 getOrder({order_id}).then(res => {
                     const {code, data, message} = res.data;
-                    if (code === 200) {
+                    if (code === SUCCESS) {
                         fillFormData(modalUpdate, data, 'input', 'select', 'textarea');
                     }
                 })
             })
-            $('.delete-button').on('click', function(e) {
+            $('.delete-button').on('click', function (e) {
                 const order_id = $(this).attr('data-id');
-
                 confirmAlert('Bạn có muốn xóa không?').then(function (result) {
                     if (result.value) {
                         removeOrder({order_id}).then(resp => {
