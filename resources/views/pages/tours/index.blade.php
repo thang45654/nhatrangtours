@@ -103,11 +103,13 @@
 
                     <!-- list and filter start -->
 
+
 {{--                    @if(session::has('success'))--}}
 {{--                        <script>--}}
 {{--                            alert("{{ session::get('success')}} ");--}}
 {{--                        </script>--}}
 {{--                    @endif--}}
+
                     <div class="card">
                         <div class="card-body border-bottom" style="display: flex">
                             <h4 style=" font-size: 16px; font-family: montserrat; color: #5e5873;font-weight: 600">danh sách tour</h4>
