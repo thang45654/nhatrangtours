@@ -3,11 +3,6 @@
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PartnersController;
-use App\Http\Controllers\Admin\TourController;
-//Route::resource('/partners', PartnersController::class);
-//Route::get('/partners-edit',[PartnersController::class, 'editPart'])->name('partners.edit');
-//Route::post('/edit-partner',[PartnersController::class, 'updatePart'])->name('partners.update');
-//Route::get('/partners/delete/{id}',[PartnersController::class, 'destroy'])->name('partners.delete');
 
 Route::group(['prefix'=>'partners'],function(){
     Route::get('',[PartnersController::class,'index'])->name('partners.index');
@@ -31,6 +26,7 @@ Route::get('delete/{id}', [TourController::class,'delete'])->name('tours.delete'
 
 Route::resource('orders', OrderController::class);
 Route::post('create-order', [OrderController::class, 'createOrder']);
+Route::get('/statistic', [HomeController::class, 'index'])->name('statistic');
 
 Route::get('/ticket-chart', [HomeController::class, 'getTicketChart']);
 Route::get('/revenue-chart', [HomeController::class, 'getRevenueChart']);

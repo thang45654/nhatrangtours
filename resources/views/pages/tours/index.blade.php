@@ -103,9 +103,9 @@
 
                     <!-- list and filter start -->
 
-                    @if(session::has('success'))
+                    @if(Session::has('success'))
                         <script>
-                            alert("{{ session::get('success')}} ");
+                            alert("{{ Session::get('success')}} ");
                         </script>
                     @endif
                     <div class="card">
