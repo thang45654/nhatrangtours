@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\StatisticController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PartnersController;
+use App\Http\Controllers\Admin\TourController;
 
+Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::group(['prefix'=>'partners'],function(){
     Route::get('',[PartnersController::class,'index'])->name('partners.index');
 
@@ -18,12 +20,24 @@ Route::group(['prefix'=>'partners'],function(){
 
     Route::get('delete/{id}',[PartnersController::class,'delete'])->name('partners.delete');
 });
-Route::resource('tours', TourController::class);
 
-Route::get('edit-tours', [TourController::class, 'showForm'])->name('tour.edit');
-Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::group(['prefix'=>'tours'], function(){
 
-Route::get('delete/{id}', [TourController::class,'delete'])->name('tours.delete');
+    Route::get('',[TourController::class,'index'])->name('tour.index');
+    //them
+    Route::post('create',[TourController::class,'store'])->name('tour.store');
+    //edit
+    Route::get('edit-tours', [TourController::class, 'showForm'])->name('tour.edit');
+    //call lấy dữ liệu cho edit
+    Route::get('get-tour', [TourController::class, 'getTour'])->name('get.tour');
+    // update post
+    Route::post('update-tour/{id}', [TourController::class, 'update'])->name('update.tour');
+    //show
+    Route::get('show/{id}',[TourController::class,'show'])->name('tour.show');
+    Route::get('delete/{id}', [TourController::class,'destroy'])->name('tour.delete');
+
+
+});
 
 Route::resource('orders', OrderController::class);
 Route::post('create-order', [OrderController::class, 'createOrder']);
