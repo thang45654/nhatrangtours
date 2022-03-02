@@ -53,10 +53,10 @@
 <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
 
 <!-- BEGIN: Header-->
-<nav class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center" data-nav="brand-center">
+<nav class="header-navbar navbar-expand-lg navbar navbar-fixed navbar-shadow navbar-brand-center" data-nav="brand-center">
     <div class="navbar-header d-xl-block d-none">
         <ul class="nav navbar-nav">
-            <li class="nav-item"><a class="navbar-brand" href="/html/ltr/horizontal-menu-template/index.html"><span class="brand-logo">
+            <li class="nav-item"><a class="navbar-brand" href="{{route(auth()->user()->role . '.dashboard')}}"><span class="brand-logo">
                             <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
                                 <defs>
                                     <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -80,7 +80,7 @@
                                     </g>
                                 </g>
                             </svg></span>
-                    <h2 class="brand-text mb-0">Vuexy</h2>
+                    <h2 class="brand-text mb-0">My Nha Trang</h2>
                 </a></li>
         </ul>
     </div>
