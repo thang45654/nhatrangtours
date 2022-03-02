@@ -18,7 +18,13 @@ class Partner extends Authenticatable
      *
      * @var array<int, string>
      */
+    const TRANSFER = 1;
+    const CASH = 2;
 
+    const TYPE =[
+        1 =>'Chuyển khoản',
+        2 =>'Tiền mặt'
+    ];
     protected $fillable = [
         'mobile',
         'password',
@@ -63,4 +69,18 @@ class Partner extends Authenticatable
 	{
 		return $this->getDeviceTokens()->pluck('fcm_token')->toArray();
 	}
+
+    public  function getType(){
+        return Arr::get($this->type, $this->payment, "[N\A]");
+
+    }
+
+    public function getPaymentTypeAttribute()
+    {
+        if ($this->payment === self::CASH) {
+            return self::TYPE[$this->payment];
+        }
+
+        return $this->bank . ' - ' . $this->account_number;
+    }
 }
