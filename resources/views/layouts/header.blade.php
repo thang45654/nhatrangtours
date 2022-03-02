@@ -64,7 +64,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="d-flex align-items-center" href="{{ route('admin.tours.index')}}" data-bs-toggle="">
+                <a class="d-flex align-items-center" href="{{ route('admin.toursale.index')}}" data-bs-toggle="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-layers">
@@ -72,7 +72,7 @@
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
-                    <span data-i18n="User Interface">Quản lý tour</span>
+                    <span data-i18n="User Interface">Quản lý tours sale</span>
                 </a>
             </li>
             <li class="dropdown nav-item" data-menu="dropdown"><a

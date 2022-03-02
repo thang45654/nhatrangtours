@@ -43,4 +43,11 @@ class OrderController extends Controller
 		return view('pages.admin.orders.show')->with($data);
 
 	}
+    // danh sasch tour sale
+     public function getToursSale(){
+
+        $toursSale = Order::with('tour')->orderBy('id', 'desc')->paginate(10);
+
+         return view('pages.admin.toursSale.index', compact('toursSale'));
+     }
 }
