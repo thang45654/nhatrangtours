@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\StatisticController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PartnersController;
 
@@ -26,10 +27,13 @@ Route::get('delete/{id}', [TourController::class,'delete'])->name('tours.delete'
 
 Route::resource('orders', OrderController::class);
 Route::post('create-order', [OrderController::class, 'createOrder']);
-Route::get('/statistic', [HomeController::class, 'index'])->name('statistic');
+Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
 
+// ------------- Chart Data --------------
 Route::get('/ticket-chart', [HomeController::class, 'getTicketChart']);
 Route::get('/revenue-chart', [HomeController::class, 'getRevenueChart']);
 Route::get('/activity-chart', [HomeController::class, 'getActivityChart']);
 Route::get('/finance-chart', [HomeController::class, 'getFinanceChart']);
 Route::get('/bucket-chart', [HomeController::class, 'getBucketChart']);
+Route::get('/revenue-per-month', [HomeController::class, 'getBucketChart']);
+// ---------------------------------------

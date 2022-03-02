@@ -58,17 +58,21 @@ const getTicketChart = async data => {
 }
 
 const getRevenueChart = () => {
-    return callApi('/admin/revenue-chart')
+    return callApi('/admin/revenue-chart');
 }
 
 const getActivityChart = () => {
-    return callApi('/admin/activity-chart')
+    return callApi('/admin/activity-chart');
 }
 
 const getFinanceChart = () => {
-    return callApi('/admin/finance-chart')
+    return callApi('/admin/finance-chart');
 }
 
 const getBucketChart = () => {
-    return callApi('/admin/bucket-chart')
+    return callApi('/admin/bucket-chart');
+}
+
+const getRevenuePerMonth = () => {
+    return callApi('/admin/revenue-per-month');
 }
