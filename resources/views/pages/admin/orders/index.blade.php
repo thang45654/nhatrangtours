@@ -9,7 +9,6 @@
             </div>
             <div class="content-body">
                 <!-- users list start -->
-
                 @include('partials.orders.view', ['total_tours' => $total_tours,
                                                   'total_partners' => $total_partners,
                                                   'total_tickets' => $total_tickets,
@@ -18,6 +17,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection
