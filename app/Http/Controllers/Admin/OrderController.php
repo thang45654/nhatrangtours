@@ -31,4 +31,16 @@ class OrderController extends Controller
 		];
 		return view('pages.admin.orders.index')->with($data);
 	}
+
+	public function show($id)
+	{
+		$order = Order::findOrFail($id);
+
+		$data = [
+			'page_name'	 => 'Chi tiết đơn hàng',
+			'order' => $order
+		];
+		return view('pages.admin.orders.show')->with($data);
+
+	}
 }

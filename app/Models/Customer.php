@@ -9,7 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-//    protected $fillable = ['user_id', 'partner_id', 'ticket', 'total_price', 'status', 'quatity', 'note'];
+    protected $fillable = ['name', 'mobile', 'email', 'address', 'expenditure'];
 //
 //	public function tour()
 //	{
