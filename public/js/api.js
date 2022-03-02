@@ -52,3 +52,23 @@ const storeOrder = async data => {
 const removeOrder = async data => {
     return callApi('/api/remove-order', "POST", data)
 }
+
+const getTicketChart = async data => {
+    return callApi('/admin/ticket-chart')
+}
+
+const getRevenueChart = () => {
+    return callApi('/admin/revenue-chart')
+}
+
+const getActivityChart = () => {
+    return callApi('/admin/activity-chart')
+}
+
+const getFinanceChart = () => {
+    return callApi('/admin/finance-chart')
+}
+
+const getBucketChart = () => {
+    return callApi('/admin/bucket-chart')
+}

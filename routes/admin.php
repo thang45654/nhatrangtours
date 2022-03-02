@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\TourController;
@@ -24,8 +25,15 @@ Route::group(['prefix'=>'partners'],function(){
 Route::resource('tours', TourController::class);
 
 Route::get('edit-tours', [TourController::class, 'showForm'])->name('tour.edit');
+Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('delete/{id}', [TourController::class,'delete'])->name('tours.delete');
 
 Route::resource('orders', OrderController::class);
 Route::post('create-order', [OrderController::class, 'createOrder']);
+
+Route::get('/ticket-chart', [HomeController::class, 'getTicketChart']);
+Route::get('/revenue-chart', [HomeController::class, 'getRevenueChart']);
+Route::get('/activity-chart', [HomeController::class, 'getActivityChart']);
+Route::get('/finance-chart', [HomeController::class, 'getFinanceChart']);
+Route::get('/bucket-chart', [HomeController::class, 'getBucketChart']);

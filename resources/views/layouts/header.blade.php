@@ -50,7 +50,7 @@
     <div class="navbar-container main-menu-content" data-menu="menu-container">
         <!-- include /includes/mixins-->
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item"><a class="nav-link d-flex align-items-center"><i data-feather="home"></i><span
+            <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{route('admin.dashboard')}}"><i data-feather="home"></i><span
                             data-i18n="Dashboards">Dashboards</span></a>
                 {{--                <ul class="dropdown-menu" data-bs-popper="none">--}}
                 {{--                    <li class="active" data-menu=""><a class="dropdown-item d-flex align-items-center" href="dashboard-analytics.html" data-bs-toggle="" data-i18n="Analytics"><i data-feather="activity"></i><span data-i18n="Analytics">Analytics</span></a>--}}
