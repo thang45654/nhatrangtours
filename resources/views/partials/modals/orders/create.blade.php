@@ -150,7 +150,6 @@
                         }
                     })
                 })
-
             })
             modal.find('#submit-order').on('click', function () {
                 const data = getDataInForm(modal, 'input', 'select', 'textarea');

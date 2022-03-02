@@ -4,7 +4,7 @@
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
             <div class="modal-header mb-1">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm cộng tác viên</h5>
+                <h5 class="modal-title" id="exampleModalLabel" >Sửa cộng tác viên</h5>
             </div>
             <div class="modal-body flex-grow-1">
                 <div class="mb-1">
@@ -27,7 +27,7 @@
                         <div class="mb-1">
                             <label class="form-label" for="basic-icon-default-fullname">Mật khẩu*</label>
                             <input type="password" class="form-control dt-full-name" id="basic-icon-default-fullname"
-                                   placeholder="Không đổi mật khẩu thì bỏ qua" name="password"/>
+                                   placeholder="Vui lòng nhập" name="password"/>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -71,18 +71,22 @@
                 <div class="mb-1">
                     <label class="form-label" for="user-role">Phương thức thanh toán</label>
                     <select id="payMethodEdit" name="payment" class="select2 form-select">
-                        <option value="0">---Vui lòng nhập----</option>
+                        <option value="">---Vui lòng nhập----</option>
                         <option value="1">Chuyển khoản</option>
                         <option value="2">Tien mat</option>
                     </select>
                 </div>
                 <div class="mb-1" id="bankInfoEdit" style="display: none">
-                    <label class="form-label" for="basic-icon-default-company">Ngân hàng</label>
-                    <input type="text" id="basic-icon-default-company" class="form-control dt-contact"
-                           placeholder="Vui lòng nhập" name="bank"/>
-                    <label class="form-label" for="basic-icon-default-company">Số tài khoản</label>
-                    <input type="text" id="basic-icon-default-company" class="form-control dt-contact"
-                           placeholder="Vui lòng nhập" name="account_number"/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label" for="basic-icon-default-company">Ngân hàng</label>
+                            <input type="text" id="basic-icon-default-company" class="form-control dt-contact" placeholder="Vui lòng nhập" name="bank" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="basic-icon-default-company">Số tài khoản</label>
+                            <input type="text" id="basic-icon-default-company" class="form-control dt-contact" placeholder="Vui lòng nhập" name="account_number" />
+                        </div>
+                    </div>
                 </div>
                 <button type="button" class="btn btn-primary me-1 data-submit" id="formEditSubmit">Xác nhận</button>
                 <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
@@ -146,9 +150,11 @@
                     job,
                     identity_card,
                     active_area,
+                    payment,
                     bank,
                     account_number,
-                    date_of_birth
+                    date_of_birth,
+
                 } = data.data;
                 modal.find('input[name="name"]').val(name);
                 modal.find('input[name="email"]').val(email);
@@ -157,55 +163,44 @@
                 modal.find('input[name="active_area"]').val(active_area);
                 modal.find('input[name="identity_card"]').val(identity_card);
                 modal.find('input[name="job"]').val(job);
+                modal.find('select[name="payment"]').val(payment);
                 modal.find('input[name="bank"]').val(bank);
                 modal.find('input[name="account_number"]').val(account_number);
                 modal.find('input[name="date_of_birth"]').val(date_of_birth)
-            })
-        })
-        $('#formEditSubmit').click(function (e) {
-            let name = modal.find('input[name=name ]').val();
-            let email = modal.find('input[name=email]').val();
-            let phone = modal.find('input[name=phone]').val();
-            let address = modal.find('input[name=address]').val();
-            let date_of_birth = modal.find('input[name=date_of_birth]').val();
-            let account_number = modal.find('input[name=account_number]').val();
-            let active_area = modal.find('input[name=active_area]').val();
-            let identity_card = modal.find('input[name=identity_card]').val();
-            let job = modal.find('input[name=job]').val();
-
-
-            fetch("{{ route('admin.partners.update','') }}/" + id, {
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                },
-                method: "POST",
-                body: JSON.stringify({
-                    name,
-                    email,
-                    phone,
-                    address,
-                    date_of_birth,
-                    account_number,
-                    active_area,
-                    identity_card,
-                    job
-                })
-            }).then(response => response.json()).then(res => {
-                const {status,data, message} = res;
-                if (status === 422) {
-                    $.each(data, function (index, value) {
-                        modal.find('input[name=' + index + ']').addClass('is-invalid')
-                            .parent().append('<div class="invalid-feedback text-danger">' + value[0] + '</div>');
-                    });
-                    return -1;
-                } else if (status === 200) {
-                    // thanh cong
-                    window.location.reload();
-                    return -1;
-                } else {
-                    alert(message);
+                if(data.data.payment == 1){
+                        $("#bankInfoEdit").show();
                 }
-            }).catch(err => console.error(err))
+            })
+        });
+        $('#formEditSubmit').click(function (e) {
+            e.preventDefault();
+            // xoa border
+            modal.find('.is-invalid').removeClass('is-invalid');
+            modal.find('.invalid-feedback').remove();
+              axios.post( "{{ route('admin.partners.update','') }}/" + id, {
+                  name : modal.find('input[name=name ]').val(),
+                  email: modal.find('input[name=email]').val(),
+                  phone: modal.find('input[name=phone]').val(),
+                  address: modal.find('input[name=address]').val(),
+                  password: modal.find('input[name=password]').val(),
+                  confirm_password: modal.find('input[name=confirm_password]').val(),
+                  account_number: modal.find('input[name=account_number]').val(),
+                  bank: modal.find('input[name=bank]').val(),
+                  date_of_birth : modal.find('input[name=date_of_birth]').val(),
+                  active_area : modal.find('input[name=active_area]').val(),
+                  identity_card :  modal.find('input[name=identity_card]').val(),
+                  job: modal.find('input[name=job]').val(),
+                  payment : modal.find('select[name=payment]').val(),
+              }).then(function (response){
+                console.log(response);
+                alert(response.data);
+                  location.reload();
+        }).catch(function (error){
+            $.each(error.response.data.errors, function (index, value) {
+                modal.find('input[name=' + index + '], select[name='+index+']').addClass('is-invalid')
+                  .parent().append('<div class="invalid-feedback text-danger">' + value[0] + '</div>');
+            });
         });
     });
+});
 </script>

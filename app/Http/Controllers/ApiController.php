@@ -82,7 +82,6 @@ class ApiController extends Controller
 
 		$data['total_price'] = $total_price;
 
-
 		$order = Order::create($data);
 		return $this->sendResponse($order, 'Tạo order thành công');
 	}
