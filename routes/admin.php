@@ -37,3 +37,4 @@ Route::get('/finance-chart', [HomeController::class, 'getFinanceChart']);
 Route::get('/bucket-chart', [HomeController::class, 'getBucketChart']);
 Route::get('/revenue-per-month', [HomeController::class, 'getBucketChart']);
 // ---------------------------------------
+
