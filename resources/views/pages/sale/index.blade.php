@@ -40,7 +40,7 @@
 
                                     <div class="d-flex flex-column justify-content-center text-center">
                                         <h3 class="fw-bolder">{{$total_tours}}</h3>
-                                        <span>tour du lịch</span>
+                                        <span>Tour du lịch</span>
                                     </div>
 
                                 </div>
@@ -111,7 +111,7 @@
                     <!-- list and filter start -->
                     <div class="card">
                         <div class="card-body pd-0">
-                            <h4 class="card-title mb-0">Danh sách đơn mua</h4>
+                            <h4 class="card-title mb-0">Danh sách đơn mua </h4>
                             <div class="row">
                                 <div class="col-md-4 user_role"></div>
                                 <div class="col-md-4 user_plan"></div>
@@ -127,7 +127,8 @@
                                     <th>Tour du lịch</th>
                                     <th>Khách hàng</th>
                                     <th>Số lượng vé</th>
-                                    <th>Tổng tiền</th>
+
+                                    <th>Tổng tiền </th>
                                     <th>Hành động</th>
                                 </tr>
                                 </thead>
@@ -139,10 +140,11 @@
                                         <td>{{@$order->tour->name ?? 'Không có'}}</td>
                                         <td>{{@$order->customer->name ?? 'Không có'}}</td>
                                         <td>{{$order->quatity}}</td>
-                                        <td>{{$order->total_price }}</td>
+
+                                        <td>{{$order->total_price}}</td>
                                         <td class="d-flex justify-center">
                                             <div class="show-button cursor-pointer" id="btn-edit-modal" >
-                                                <a href="{{route('admin.orders.show', $order->id)}}" style="color: #6e6b7b">
+                                                <a href="{{route('admin.sale.show', $order->id)}}" style="color: #6e6b7b">
                                                     <i class="icon"
                                                        data-id="{{ $order->id }}"
                                                        data-feather='eye'></i>

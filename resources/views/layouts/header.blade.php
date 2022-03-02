@@ -76,113 +76,113 @@
                 </a>
             </li>
             <li class="dropdown nav-item" data-menu="dropdown"><a
-                        class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i
-                            data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Forms &amp; Tables</span></a>
-                <ul class="dropdown-menu" data-bs-popper="none">
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Form Elements"><i data-feather="copy"></i><span
-                                    data-i18n="Form Elements">Form Elements</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-input.html"
-                                                data-bs-toggle="" data-i18n="Input"><i data-feather="circle"></i><span
-                                            data-i18n="Input">Input</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-input-groups.html" data-bs-toggle=""
-                                                data-i18n="Input Groups"><i data-feather="circle"></i><span
-                                            data-i18n="Input Groups">Input Groups</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-input-mask.html" data-bs-toggle="" data-i18n="Input Mask"><i
-                                            data-feather="circle"></i><span data-i18n="Input Mask">Input Mask</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-textarea.html" data-bs-toggle="" data-i18n="Textarea"><i
-                                            data-feather="circle"></i><span data-i18n="Textarea">Textarea</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-checkbox.html" data-bs-toggle="" data-i18n="Checkbox"><i
-                                            data-feather="circle"></i><span data-i18n="Checkbox">Checkbox</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-radio.html"
-                                                data-bs-toggle="" data-i18n="Radio"><i data-feather="circle"></i><span
-                                            data-i18n="Radio">Radio</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-custom-options.html" data-bs-toggle=""
-                                                data-i18n="Custom Options"><i data-feather="circle"></i><span
-                                            data-i18n="Custom Options">Custom Options</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-switch.html"
-                                                data-bs-toggle="" data-i18n="Switch"><i data-feather="circle"></i><span
-                                            data-i18n="Switch">Switch</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-select.html"
-                                                data-bs-toggle="" data-i18n="Select"><i data-feather="circle"></i><span
-                                            data-i18n="Select">Select</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-number-input.html" data-bs-toggle=""
-                                                data-i18n="Number Input"><i data-feather="circle"></i><span
-                                            data-i18n="Number Input">Number Input</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-file-uploader.html" data-bs-toggle=""
-                                                data-i18n="File Uploader"><i data-feather="circle"></i><span
-                                            data-i18n="File Uploader">File Uploader</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-quill-editor.html" data-bs-toggle=""
-                                                data-i18n="Quill Editor"><i data-feather="circle"></i><span
-                                            data-i18n="Quill Editor">Quill Editor</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="form-date-time-picker.html" data-bs-toggle=""
-                                                data-i18n="Date &amp; Time Picker"><i data-feather="circle"></i><span
-                                            data-i18n="Date &amp; Time Picker">Date &amp; Time Picker</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-layout.html"
-                                        data-bs-toggle="" data-i18n="Form Layout"><i data-feather="box"></i><span
-                                    data-i18n="Form Layout">Form Layout</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-wizard.html"
-                                        data-bs-toggle="" data-i18n="Form Wizard"><i data-feather="package"></i><span
-                                    data-i18n="Form Wizard">Form Wizard</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-validation.html"
-                                        data-bs-toggle="" data-i18n="Form Validation"><i
-                                    data-feather="check-circle"></i><span
-                                    data-i18n="Form Validation">Form Validation</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-repeater.html"
-                                        data-bs-toggle="" data-i18n="Form Repeater"><i
-                                    data-feather="rotate-cw"></i><span
-                                    data-i18n="Form Repeater">Form Repeater</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="table-bootstrap.html"
-                                        data-bs-toggle="" data-i18n="Table"><i data-feather="server"></i><span
-                                    data-i18n="Table">Table</span></a>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Datatable"><i data-feather="grid"></i><span
-                                    data-i18n="Datatable">Datatable</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="table-datatable-basic.html" data-bs-toggle="" data-i18n="Basic"><i
-                                            data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="table-datatable-advanced.html" data-bs-toggle=""
-                                                data-i18n="Advanced"><i data-feather="circle"></i><span
-                                            data-i18n="Advanced">Advanced</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                        class=" nav-link d-flex align-items-center" href="{{route('admin.sale.index')}}"><i
+                            data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lí sale</span></a>
+{{--                <ul class="dropdown-menu" data-bs-popper="none">--}}
+{{--                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a--}}
+{{--                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"--}}
+{{--                                data-bs-toggle="dropdown" data-i18n="Form Elements"><i data-feather="copy"></i><span--}}
+{{--                                    data-i18n="Form Elements">Form Elements</span></a>--}}
+{{--                        <ul class="dropdown-menu" data-bs-popper="none">--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-input.html"--}}
+{{--                                                data-bs-toggle="" data-i18n="Input"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Input">Input</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-input-groups.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="Input Groups"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Input Groups">Input Groups</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-input-mask.html" data-bs-toggle="" data-i18n="Input Mask"><i--}}
+{{--                                            data-feather="circle"></i><span data-i18n="Input Mask">Input Mask</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-textarea.html" data-bs-toggle="" data-i18n="Textarea"><i--}}
+{{--                                            data-feather="circle"></i><span data-i18n="Textarea">Textarea</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-checkbox.html" data-bs-toggle="" data-i18n="Checkbox"><i--}}
+{{--                                            data-feather="circle"></i><span data-i18n="Checkbox">Checkbox</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-radio.html"--}}
+{{--                                                data-bs-toggle="" data-i18n="Radio"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Radio">Radio</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-custom-options.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="Custom Options"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Custom Options">Custom Options</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-switch.html"--}}
+{{--                                                data-bs-toggle="" data-i18n="Switch"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Switch">Switch</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-select.html"--}}
+{{--                                                data-bs-toggle="" data-i18n="Select"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Select">Select</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-number-input.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="Number Input"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Number Input">Number Input</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-file-uploader.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="File Uploader"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="File Uploader">File Uploader</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-quill-editor.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="Quill Editor"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Quill Editor">Quill Editor</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="form-date-time-picker.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="Date &amp; Time Picker"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Date &amp; Time Picker">Date &amp; Time Picker</span></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-layout.html"--}}
+{{--                                        data-bs-toggle="" data-i18n="Form Layout"><i data-feather="box"></i><span--}}
+{{--                                    data-i18n="Form Layout">Form Layout</span></a>--}}
+{{--                    </li>--}}
+{{--                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-wizard.html"--}}
+{{--                                        data-bs-toggle="" data-i18n="Form Wizard"><i data-feather="package"></i><span--}}
+{{--                                    data-i18n="Form Wizard">Form Wizard</span></a>--}}
+{{--                    </li>--}}
+{{--                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-validation.html"--}}
+{{--                                        data-bs-toggle="" data-i18n="Form Validation"><i--}}
+{{--                                    data-feather="check-circle"></i><span--}}
+{{--                                    data-i18n="Form Validation">Form Validation</span></a>--}}
+{{--                    </li>--}}
+{{--                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="form-repeater.html"--}}
+{{--                                        data-bs-toggle="" data-i18n="Form Repeater"><i--}}
+{{--                                    data-feather="rotate-cw"></i><span--}}
+{{--                                    data-i18n="Form Repeater">Form Repeater</span></a>--}}
+{{--                    </li>--}}
+{{--                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="table-bootstrap.html"--}}
+{{--                                        data-bs-toggle="" data-i18n="Table"><i data-feather="server"></i><span--}}
+{{--                                    data-i18n="Table">Table</span></a>--}}
+{{--                    </li>--}}
+{{--                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a--}}
+{{--                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"--}}
+{{--                                data-bs-toggle="dropdown" data-i18n="Datatable"><i data-feather="grid"></i><span--}}
+{{--                                    data-i18n="Datatable">Datatable</span></a>--}}
+{{--                        <ul class="dropdown-menu" data-bs-popper="none">--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="table-datatable-basic.html" data-bs-toggle="" data-i18n="Basic"><i--}}
+{{--                                            data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>--}}
+{{--                            </li>--}}
+{{--                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"--}}
+{{--                                                href="table-datatable-advanced.html" data-bs-toggle=""--}}
+{{--                                                data-i18n="Advanced"><i data-feather="circle"></i><span--}}
+{{--                                            data-i18n="Advanced">Advanced</span></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
             </li>
             <li class="dropdown nav-item" data-menu="dropdown"><a
                         class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i
