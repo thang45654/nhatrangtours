@@ -12,7 +12,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
     protected function response($dataResponse = [], $statusCode = 200, $message = '')
     {
         if (is_numeric($dataResponse)) {
