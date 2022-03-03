@@ -63,9 +63,10 @@ class RouteServiceProvider extends ServiceProvider
 
 	private function sale()
 	{
-		Route::middleware(['web', 'checkRole:admin', 'auth'])
+		Route::middleware(['web', 'checkRole:sale', 'auth'])
 			->prefix('sale')
-			->namespace($this->namespace)
+            ->name('sale.')
+            ->namespace($this->namespace. "\\Sale")
 			->group(base_path('routes/sale.php'));
 	}
 

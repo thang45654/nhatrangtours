@@ -6,25 +6,25 @@ use App\Http\Controllers\Admin\TourController;
 
 
 Route::get('dashboard', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('dashboard');
-Route::group(['prefix'=>'partners'],function(){
-    Route::get('',[PartnersController::class,'index'])->name('partners.index');
+Route::group(['prefix' => 'partners'], function () {
+    Route::get('', [PartnersController::class, 'index'])->name('partners.index');
 
-    Route::get('create',[PartnersController::class,'create'])->name('partners.create');
-    Route::post('create',[PartnersController::class,'store'])->name('partners.create');
+    Route::get('create', [PartnersController::class, 'create'])->name('partners.create');
+    Route::post('create', [PartnersController::class, 'store'])->name('partners.create');
 
-    Route::get('update',[PartnersController::class,'edit'])->name('partners.edit');
-    Route::post('update/{id}',[PartnersController::class,'update'])->name('partners.update');
+    Route::get('update', [PartnersController::class, 'edit'])->name('partners.edit');
+    Route::post('update/{id}', [PartnersController::class, 'update'])->name('partners.update');
 
-    Route::get('show/{id}',[PartnersController::class,'show'])->name('partners.show');
+    Route::get('show/{id}', [PartnersController::class, 'show'])->name('partners.show');
 
-    Route::get('delete/{id}',[PartnersController::class,'delete'])->name('partners.delete');
+    Route::get('delete/{id}', [PartnersController::class, 'delete'])->name('partners.delete');
 });
 
-Route::group(['prefix'=>'tours'], function(){
+Route::group(['prefix' => 'tours'], function () {
 
-    Route::get('',[TourController::class,'index'])->name('tour.index');
+    Route::get('', [TourController::class, 'index'])->name('tour.index');
     //them
-    Route::post('create',[TourController::class,'store'])->name('tour.store');
+    Route::post('create', [TourController::class, 'store'])->name('tour.store');
     //edit
     Route::get('edit-tours', [TourController::class, 'showForm'])->name('tour.edit');
     //call lấy dữ liệu cho edit
@@ -32,8 +32,8 @@ Route::group(['prefix'=>'tours'], function(){
     // update post
     Route::post('update-tour/{id}', [TourController::class, 'update'])->name('update.tour');
     //show
-    Route::get('show/{id}',[TourController::class,'show'])->name('tour.show');
-    Route::get('delete/{id}', [TourController::class,'destroy'])->name('tour.delete');
+    Route::get('show/{id}', [TourController::class, 'show'])->name('tour.show');
+    Route::get('delete/{id}', [TourController::class, 'destroy'])->name('tour.delete');
 
 
 });
@@ -41,15 +41,16 @@ Route::group(['prefix'=>'tours'], function(){
 Route::resource('orders', OrderController::class);
 Route::post('create-order', [OrderController::class, 'createOrder']);
 
- Route::resource('sale', OrderController::class);
 
-// Route::get('/statistic', [HomeController::class, 'index'])->name('statistic');
+Route::resource('sale', OrderController::class);
 
-// Route::get('/ticket-chart', [HomeController::class, 'getTicketChart']);
-// Route::get('/revenue-chart', [HomeController::class, 'getRevenueChart']);
-// Route::get('/activity-chart', [HomeController::class, 'getActivityChart']);
-// Route::get('/finance-chart', [HomeController::class, 'getFinanceChart']);
-// Route::get('/bucket-chart', [HomeController::class, 'getBucketChart']);
+Route::get('/statistic', [HomeController::class, 'index'])->name('statistic');
+
+Route::get('/ticket-chart', [HomeController::class, 'getTicketChart']);
+Route::get('/revenue-chart', [HomeController::class, 'getRevenueChart']);
+Route::get('/activity-chart', [HomeController::class, 'getActivityChart']);
+Route::get('/finance-chart', [HomeController::class, 'getFinanceChart']);
+Route::get('/bucket-chart', [HomeController::class, 'getBucketChart']);
 
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
 

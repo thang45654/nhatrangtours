@@ -84,9 +84,11 @@
                         href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span
                             data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
 
-
+            <li class="dropdown nav-item" data-menu="dropdown"><a
+                        class=" nav-link d-flex align-items-center" href="{{route('admin.sale.index')}}"><i
+                            data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lí sale</span></a>
             </li>
-
+            <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
             <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.statistic')}}"><a
                         class="nav-link d-flex align-items-center" href="{{route('admin.statistic')}}"><i
                             data-feather="bar-chart-2"></i><span
