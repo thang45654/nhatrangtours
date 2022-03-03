@@ -50,7 +50,8 @@
     <div class="navbar-container main-menu-content" data-menu="menu-container">
         <!-- include /includes/mixins-->
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.dashboard')}}"><a class="nav-link d-flex align-items-center" href="{{route('admin.dashboard')}}"><i
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.dashboard')}}"><a
+                        class="nav-link d-flex align-items-center" href="{{route('admin.dashboard')}}"><i
                             data-feather="home"></i><span
                             data-i18n="Dashboards">Dashboards</span></a>
                 {{--                <ul class="dropdown-menu" data-bs-popper="none">--}}
@@ -60,9 +61,7 @@
                 {{--                    </li>--}}
                 {{--                </ul>--}}
             </li>
-            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.orders')}}"><a class="nav-link d-flex align-items-center" href="{{route("admin.orders.index")}}"><i
-                            data-feather="package"></i><span data-i18n="Apps">Quản lý bán hàng</span></a>
-            </li>
+
 
             <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.tour')}}">
                 <a class="nav-link d-flex align-items-center" href="{{ route('admin.tour.index')}}">
@@ -76,17 +75,24 @@
                     <span data-i18n="User Interface">Quản lý tour</span>
                 </a>
             </li>
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.sale')}}"><a
+                        class=" nav-link d-flex align-items-center" href="{{route('admin.sale.index')}}"><i
+                            data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lí sale</span></a>
 
-            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.partners')}}"><a class="nav-link d-flex align-items-center"
-                                    href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.partners')}}"><a
+                        class="nav-link d-flex align-items-center"
+                        href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span
                             data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
 
-
+            <li class="dropdown nav-item" data-menu="dropdown"><a
+                        class=" nav-link d-flex align-items-center" href="{{route('admin.sale.index')}}"><i
+                            data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lí sale</span></a>
             </li>
-
+            <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
             <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.statistic')}}"><a
                         class="nav-link d-flex align-items-center" href="{{route('admin.statistic')}}"><i
-                            data-feather="bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Báo cáo thống kê</span></a>
+                            data-feather="bar-chart-2"></i><span
+                            data-i18n="Charts &amp; Maps">Báo cáo thống kê</span></a>
 
             </li>
 

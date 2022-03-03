@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\PartnersController;
+use App\Http\Controllers\Admin\HomeController;
+
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\Admin\PartnerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +33,11 @@ Route::get('/dashboard', function () {
 })->middleware('auth')->name('dashboard');
 require __DIR__.'/auth.php';
 
+require __DIR__.'/admin.php';
+require __DIR__.'/sale.php';
+
+
+
 //Route::get('/admin/partners',[PartnerController::class,'index']);
 //Route::get('/admin/partners/s',[PartnerController::class,'show']);
+

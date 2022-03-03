@@ -111,11 +111,19 @@
                     <!-- list and filter start -->
 
 
+
+{{--                    @if(session::has('success'))--}}
+{{--                        <script>--}}
+{{--                            alert("{{ session::get('success')}} ");--}}
+{{--                        </script>--}}
+{{--                    @endif--}}
+
                     @if(Session::has('success'))
                         <script>
                             alert("{{ Session::get('success')}} ");
                         </script>
                     @endif
+
 
                     <div class="card">
                         <div class="card-body pd-0">
