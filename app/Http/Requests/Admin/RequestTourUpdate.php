@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminRequestTours extends FormRequest
+class RequestTourUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class AdminRequestTours extends FormRequest
     {
         return [
 
-            'name' => 'required|unique:tours,name|max:190|min:3',
+            'name' => 'required|max:190|min:3',
             'price' => 'required|numeric',
 
 
@@ -37,13 +37,8 @@ class AdminRequestTours extends FormRequest
         return [
             'name.required' => 'Dữ liệu không được bỏ trống',
             'name.max' => 'Dữ liệu không quá 190 ký tự',
-            'name.unique' => 'Tên không được trùng nhau',
             'name.min' => 'Dữ liệu phải nhiều hơn 3 ký tự',
             'price.required' => 'Dữ liệu không được bỏ trống',
-
-
-
-
 
         ];
     }

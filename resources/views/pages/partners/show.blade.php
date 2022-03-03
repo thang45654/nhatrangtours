@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <div class="app-content content ">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
             <div class="content-header row">
             </div>
+            @include('pages.partners.edit')
             <div class="content-body">
                 <!-- users list start -->
                 <section class="app-user-list">
@@ -19,15 +21,26 @@
                                             <p class="fw-bold text-black" style="font-size: 14px">Họ tên CTV : {{$partner->name}}</p>
                                             <p class="card-text font-small-3">Thông tin liên hệ</p>
 
-                                            <button type="button" class="btn btn-primary btn-sm">Chỉnh sửa</button>
+                                            <button type="button" data-bs-target="#editScore" data-bs-toggle="modal"  data-id="{{ $partner->id }}" class="btn btn-primary btn-sm">Chỉnh sửa</button>
                                             <a href="{{ route('admin.partners.delete', $partner->id) }}" onclick="return window.confirm('Bạn có chắc chắn xóa không?');"                   class="btn btn-outline-danger btn-sm">Xóa bỏ</a>
                                             <div class="d-flex mt-2">
                                                 <div class="me-2 d-flex">
                                                     <div style="width: 32px;height: 32px;justify-content: center;align-items: center" class="bg-light-primary d-flex rounded-1 me-1">
                                                         <i data-feather='check'></i>
                                                     </div>
+                                                    @php
+                                                            $total_quatity =0;
+                                                            $total_price =0;
+
+                                                    @endphp
                                                     <div>
-                                                        <h3 class="m-0" style="font-size: 16px">421</h3>
+                                                        @foreach($orders as $order)
+                                                            @php
+                                                                $total_quatity +=   $order->quatity;
+                                                                 $total_price +=   $order->total_price;
+                                                                    @endphp
+                                                        @endforeach
+                                                        <h3 class="m-0" style="font-size: 16px">{{ $total_quatity }}</h3>
                                                         <p class="m-0 text-nowrap">Tổng lượng vé</p>
                                                     </div>
                                                 </div>
@@ -36,8 +49,8 @@
                                                         <i data-feather='check'></i>
                                                     </div>
                                                     <div>
-                                                        <h3 class="m-0" style="font-size: 16px">421</h3>
-                                                        <p class="m-0 text-nowrap">Tổng lượng vé</p>
+                                                        <h3 class="m-0" style="font-size: 16px">{{ number_format($total_price) }}</h3>
+                                                        <p class="m-0 text-nowrap">Tổng tiền hoa hồng</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,24 +93,24 @@
                                                     <path d="M3.49999 3C3.49999 1.61929 4.61928 0.5 5.99999 0.5C7.3807 0.5 8.49999 1.61929 8.49999 3V3.00585M3.49999 3C3.8139 2.99404 4.16635 3 4.58016 3H7.41982C7.831 3 8.18752 3 8.49999 3.00585M3.49999 3C2.64056 3.01632 2.10911 3.0833 1.69598 3.31138C1.21543 3.57668 0.835976 3.99252 0.615517 4.4942M0.615517 4.4942L2.40379 6.28248C4.07046 7.94914 4.90379 8.78248 5.93932 8.78248C6.97486 8.78248 7.80819 7.94914 9.47486 6.28247L11.2912 4.46613C11.309 4.44832 11.3287 4.43245 11.3498 4.4188V4.4188M0.615517 4.4942C0.608727 4.50965 0.602088 4.52519 0.595602 4.5408C0.34841 5.13576 0.433817 5.90441 0.604629 7.44173C0.744439 8.70001 0.814343 9.32915 1.10459 9.80394C1.36027 10.2222 1.73326 10.556 2.17718 10.764C2.68112 11 3.31413 11 4.58016 11H7.41982C8.68585 11 9.31886 11 9.8228 10.764C10.2667 10.556 10.6397 10.2222 10.8954 9.80394C11.1856 9.32915 11.2555 8.70001 11.3954 7.44173C11.5662 5.90441 11.6516 5.13576 11.4044 4.5408C11.3873 4.49957 11.3691 4.45889 11.3498 4.4188M8.49999 3.00585C9.36298 3.022 9.88992 3.08277 10.304 3.31138C10.7603 3.56327 11.1254 3.95087 11.3498 4.4188" stroke="#5E5873"/>
                                                 </svg>
                                                 Nghề nghệp</p>
-                                            <p class="m-0 fw-bold text-black"><svg width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <p class="m-0 fw-bold text-black"><svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M6 10.625C8.55432 10.625 10.625 8.55432 10.625 6C10.625 3.44568 8.55432 1.375 6 1.375C3.44568 1.375 1.375 3.44568 1.375 6C1.375 8.55432 3.44568 10.625 6 10.625Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M4.49001 7.06997L5.245 5.40997C5.28 5.33497 5.335 5.27997 5.41 5.24497L7.07 4.48997C7.35 4.36497 7.635 4.64997 7.51 4.92997L6.75501 6.58997C6.72001 6.66497 6.66501 6.71997 6.59001 6.75497L4.93001 7.50997C4.65001 7.63997 4.36001 7.34997 4.49001 7.06997Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
                                                 Khu vực hoạt động</p>
-                                            <p class="m-0 fw-bold text-black"><svg width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <p class="m-0 fw-bold text-black"><svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M5.9999 1.375C4.1549 1.375 2.6499 2.88 2.6499 4.725C2.6499 7.015 5.6499 10.385 5.7749 10.525C5.8949 10.66 6.1049 10.66 6.2249 10.525C6.3549 10.385 9.3499 7.015 9.3499 4.725C9.3499 2.88 7.8449 1.375 5.9999 1.375Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M6.18642 5.89505C6.83277 5.79217 7.27333 5.18481 7.17045 4.53846C7.06757 3.89212 6.4602 3.45156 5.81386 3.55444C5.16752 3.65732 4.72696 4.26469 4.82984 4.91103C4.93272 5.55737 5.54008 5.99793 6.18642 5.89505Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
                                                 Nơi ở hiện tại</p>
-                                            <p class="m-0 fw-bold text-black"><svg width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <p class="m-0 fw-bold text-black"><svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M5.78461 2.995C6.23196 2.995 6.5946 2.63235 6.5946 2.185C6.5946 1.73765 6.23196 1.375 5.78461 1.375C5.33726 1.375 4.97461 1.73765 4.97461 2.185C4.97461 2.63235 5.33726 2.995 5.78461 2.995Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M2.06983 6.03995C2.27983 5.69495 2.56483 5.39995 2.92483 5.17995C3.30983 4.94495 3.74982 4.81495 4.19982 4.74495C4.92982 4.63995 5.66482 4.66495 6.39982 4.69495C6.43482 4.69495 6.46482 4.69994 6.49982 4.69994C6.68982 4.72494 6.84482 4.68495 7.01482 4.56995C7.51482 4.23995 8.08483 4.11995 8.69483 4.14995C8.82983 4.15495 8.91483 4.19994 8.95483 4.26994C8.99983 4.35994 8.94482 4.46995 8.91982 4.52495C8.81982 4.73495 8.69983 5.02495 8.54983 5.41995C8.62483 5.52495 8.72983 5.66494 8.86483 5.82494C8.91483 5.88494 9.10982 6.11494 9.27982 6.26994C9.43982 6.41494 9.75983 6.66495 10.3148 6.84495C10.3098 7.32495 10.3048 7.79995 10.2998 8.27995C10.1748 8.30995 9.98982 8.36995 9.79482 8.48995C9.40482 8.73495 9.32982 9.01995 9.02982 9.27995C8.85982 9.42995 8.57482 9.60495 8.10982 9.67495C8.02482 9.76995 7.91482 9.90995 7.82482 10.0949C7.72982 10.2999 7.68982 10.4799 7.66982 10.6099C7.22982 10.6099 6.79482 10.6099 6.35482 10.6099C6.31482 10.5399 6.27482 10.4649 6.23482 10.3849C6.19982 10.3149 6.16482 10.245 6.13982 10.175C5.62982 10.175 5.11982 10.175 4.60982 10.175C4.57982 10.23 4.54982 10.29 4.51482 10.355C4.46982 10.445 4.43482 10.5349 4.40482 10.6149C3.96482 10.6099 3.52982 10.61 3.08982 10.605C3.06482 10.57 3.02483 10.515 2.98983 10.44C2.88483 10.23 2.90482 10.0649 2.85482 9.93495C2.77982 9.74995 2.69483 9.56495 2.56483 9.40995C2.08483 8.82995 1.68982 8.15995 1.67982 7.41495C1.67482 6.94995 1.81483 6.45995 2.06983 6.03995Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M4.96484 6.24512H6.60985" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M7.89958 6.51511C7.89958 6.45689 7.94567 6.4201 7.98959 6.4201C8.03349 6.4201 8.07959 6.45687 8.07959 6.51511C8.07959 6.57335 8.03349 6.61011 7.98959 6.61011C7.94567 6.61011 7.89958 6.57332 7.89958 6.51511Z" fill="black" stroke="#5E5873"/>
                                                 </svg>
                                                 Hình thức thanh toán</p>
-                                            <p class="m-0 fw-bold text-black"><svg width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <p class="m-0 fw-bold text-black"><svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M6 10.625C8.55432 10.625 10.625 8.55432 10.625 6C10.625 3.44568 8.55432 1.375 6 1.375C3.44568 1.375 1.375 3.44568 1.375 6C1.375 8.55432 3.44568 10.625 6 10.625Z" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M6 6.40989L4.5 5.37988" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <path d="M6 6.41L8.05499 4.86499" stroke="#5E5873" stroke-linecap="round" stroke-linejoin="round"/>
@@ -383,97 +396,30 @@
                                     <table class="user-list-table table">
                                         <thead class="table-light">
                                         <tr>
-                                            <th>ID
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
-                                            <th>THỜI GIAN
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
-                                            <th>KHÁCH HÀNG
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
-                                            <th>SỐ LƯỢNG VÉ
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
-                                            <th>TỔNG TIỀN
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
+                                            <th>ID</th>
+                                            <th>THỜI GIAN</th>
+                                            <th>KHÁCH HÀNG</th>
+                                            <th>SỐ LƯỢNG VÉ</th>
+                                            <th>TỔNG TIỀN</th>
                                         </tr>
                                         <tbody>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
+                                        @if(isset($orders))
 
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
+                                            @foreach($orders as $order)
                                         <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
+                                            <td>{{$order->id}}</td>
+                                            <td>
+                                                {{$order->time_start->format('Y-m-d')}}
+                                                <p class="m-0 fs-6 text-muted">{{$order->time_start->format('h-i-s')}}</p></td>
 
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
+                                            <td >{{ $order->customer->name }}<p class="m-0 fs-6 text-muted">{{ $order->customer->email }}</p></td>
 
-                                            <td>4</td>
-                                            <td>520.000</td>
+                                            <td>{{$order->quatity}}</td>
+                                            <td>{{number_format($order->total_price)}}</td>
                                         </tr>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
+                                            @endforeach
+                                        @endif
 
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
-
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
-
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
-
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
-                                        <tr class="fw-bold text-black" >
-                                            <td>#1000</td>
-                                            <td>dd/mm/yy <p class="m-0 fs-6 text-muted">hh:mm</p></td>
-                                            <td >Nguyenx Ứng Khánh Linh <p class="m-0 fs-6 text-muted">khanhlinhnguyenung.com</p></td>
-
-                                            <td>4</td>
-                                            <td>520.000</td>
-                                        </tr>
                                         </tbody>
                                         </thead>
                                     </table>
@@ -508,16 +454,8 @@
                                     <table class="user-list-table table">
                                         <thead class="table-light">
                                         <tr>
-                                            <th>THỜI GIAN
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
-                                            <th>SÔ TIỀN
-                                                <div class="d-inline-flex flex-column">
-                                                    <i style="color: gray" data-feather="chevron-up"></i>
-                                                    <i style="color: gray" data-feather="chevron-down"></i>
-                                                </div></th>
+                                            <th>THỜI GIAN</th>
+                                            <th>SÔ TIỀN</th>
                                         </tr>
                                         <tbody>
                                         <tr>
@@ -556,9 +494,11 @@
             </div>
         </div>
     </div>
+
 @endsection
 @push('css')
 @endpush
 
 @push('js')
+
 @endpush

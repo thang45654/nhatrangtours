@@ -13,12 +13,12 @@
             <div class="content-body">
                 <!-- users list start -->
                 <section class="app-user-list">
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-lg-4 col-sm-6">
                             <div class="card card-congratulation-medal">
                                 <div class="card-body">
-                                    <h5>Ngắm hoàng hôn trên du thuyền 20 star trên siêu du thuyền Green</h5>
-                                    <p class="card-text font-small-3">30.000.000 VND</p>
+                                    <h5 style="font-family: Montserrat;font-weight: 600; font-size: 16px;color: #5E5873">{{ $tour->name }}</h5>
+                                    <p style="font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B;" class="card-text font-small-3">{{number_format($tour->price)}}</p>
                                     <h3 class="mb-75 pt-50">
                                         <a href="#"></a>
                                     </h3>
@@ -30,8 +30,8 @@
                                                 </span>
                                             </div>
                                             <div style="margin-left: 10px;">
-                                                <span>568</span> <br>
-                                                <span class="card-text font-small-3">Tổng doanh thu</span>
+                                                <span style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B">568</span> <br>
+                                                <span style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-3">Tổng doanh thu</span>
                                             </div>
 
 
@@ -45,8 +45,8 @@
                                                 </span>
                                             </div>
                                             <div style="margin-left: 10px;">
-                                                <span>1.23k</span> <br>
-                                                <span class="card-text font-small-3">Tổng vé đã bán</span>
+                                                <span style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B">1.23k</span> <br>
+                                                <span style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-3">Tổng vé đã bán</span>
                                             </div>
 
 
@@ -55,14 +55,14 @@
 
                                     <div class="d-flex">
                                         <div class="mt-2">
-                                            <p class="card-text font-small-4">Chiết khấu CTV:</p>
-                                            <p class="card-text font-small-4">Chiết khấu KH:</p>
-                                            <p class="card-text font-small-4">Trạng thái:</p>
+                                            <p style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-4">Chiết khấu CTV:</p>
+                                            <p style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-4">Chiết khấu KH:</p>
+                                            <p style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-4">Trạng thái:</p>
                                         </div>
                                         <div style="margin-left: 100px;" class="mt-2">
-                                            <p class="card-text font-small-4">5%</p>
-                                            <p class="card-text font-small-4">10%</p>
-                                            <p class="card-text font-small-4">Cho phép bán</p>
+                                            <p style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-4">{{$tour->discount_percent}}%</p>
+                                            <p style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-4">{{$tour->discount_percent_customer}}%</p>
+                                            <p style=" font-family: Montserrat;font-weight: 600; font-size: 14px;color: #6E6B7B" class="card-text font-small-4">Cho phép bán</p>
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-primary mt-2">Chỉnh sửa</button>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-lg-8 col-sm-6">
 
-                            <div class="card">
+                            <div style="height: 283px;" class="card">
                                 <div class="card-header d-flex-column align-items-start pb-0 mt-2">
                                     {{--                                        <div class="avatar bg-light-primary p-50 m-0">--}}
                                     {{--                                            <div class="avatar-content">--}}
@@ -103,7 +103,7 @@
                         </div>
 
                     </div>
-                @include('pages.tours.create')
+
                 <!-- list and filter start -->
                     <div class="card">
                         <div class="d-flex justify-content-between align-items-center header-actions mx-2 row mt-75">

@@ -20,7 +20,7 @@ class Partner extends Authenticatable
      */
     const TRANSFER = 1;
     const CASH = 2;
-
+    protected $guarded=[''];
     const TYPE =[
         1 =>'Chuyển khoản',
         2 =>'Tiền mặt'
@@ -74,7 +74,13 @@ class Partner extends Authenticatable
         return Arr::get($this->type, $this->payment, "[N\A]");
 
     }
-
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
     public function getPaymentTypeAttribute()
     {
         if ($this->payment === self::CASH) {
