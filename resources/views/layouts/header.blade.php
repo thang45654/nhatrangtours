@@ -72,7 +72,7 @@
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
                     </svg>
-                    <span data-i18n="User Interface">Quản lý tour</span>
+                    <span data-i18n="User Interface">Quản lý tours sale</span>
                 </a>
             </li>
             <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.sale')}}"><a

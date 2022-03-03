@@ -39,6 +39,7 @@ Route::group(['prefix' => 'tours'], function () {
 });
 
 Route::resource('orders', OrderController::class);
+
 Route::post('create-order', [OrderController::class, 'createOrder']);
 
 
