@@ -21,7 +21,6 @@ class PartnersController extends Controller
 {
     public function index()
     {
-
         $partners = Partner::orderBy('id', 'desc')->paginate(10);
         $orders = Order::orderBy('created_at', 'desc')->get();
         $partner = DB::table('partners')->selectRaw('count(*) as total_partners')->first();
@@ -31,9 +30,10 @@ class PartnersController extends Controller
             'total_partners' => $partner->total_partners,
             'total_tickets' => $orders->sum('quatity'),
             'total_revenue' => $orders->sum('total_price'),
-            'total_tours' => $orders->groupBy('tour_id')->count()
+            'total_tours' => $orders->groupBy('tour_id')->count(),
+            'partners' => $partners
         ];
-        return view('pages.partners.index', ['data'=>$data, 'partners'=>$partners]);
+        return view('pages.partners.index')->with($data);
     }
     public function show($id)
     {
