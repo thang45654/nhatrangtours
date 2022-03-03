@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class PartnersRequest extends FormRequest
 {
@@ -21,13 +22,13 @@ class PartnersRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request  $request)
     {
         return [
             'name'              =>'required',
-            'password'          =>'required|min:6',
+            'password'          =>($request->view === 'store' ? 'required' : 'nullable').'|min:6',
             'email'             =>'required|email',
-            'confirm_password'  =>'required|min:6|same:password',
+            'confirm_password'  =>($request->view === 'store' ? 'required' : 'nullable').'|min:6|same:password',
             'phone'             =>'required|max:15',
             'job'               =>'required',
             'date_of_birth'     =>'required',
