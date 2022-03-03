@@ -18,7 +18,6 @@ class Controller extends BaseController
             $statusCode = $dataResponse;
             $dataResponse = [];
         }
-
         return response([
             'status' => $statusCode,
             'code' => $statusCode,
@@ -26,12 +25,18 @@ class Controller extends BaseController
             'data' => $dataResponse
         ]);
     }
-
+    public function responsePartners($data = [], $status = 200, $message = '')
+    {
+        return response([
+            'data' => $data,
+            'status' => $status,
+            'message' => $message
+        ]);
+    }
     public function sendResponse($data, $message, $extraData = [])
     {
         return Response::json($this->makeResponse($message, $data, $extraData));
     }
-
     private function makeResponse($message = 'ok', $data = [], array $extraData = [])
     {
         $response = [
@@ -39,14 +44,11 @@ class Controller extends BaseController
             'data' => $data,
             'message' => $message,
         ];
-
         if (!empty($extraData)) {
             $response = array_merge($response, $extraData);
         }
-
         return $response;
     }
-
     private function makeError($code, $message = '', $data = [])
     {
         $response = [
@@ -54,11 +56,8 @@ class Controller extends BaseController
             'data' => $data,
             'message' => $message,
         ];
-
         return $response;
     }
-
-
     public function sendError($code, $message = '', $data = [])
     {
         return Response::json($this->makeError($code, $message, $data));

@@ -17,7 +17,7 @@
                                 <div class="row">
                                     <div class="d-flex justify-content-between flex-column col-xl-5 col-21">
                                         <div class="d-flex flex-column">
-                                            <h3>{{@$order->tour->name ?? ''}}</h3>
+                                            <h3>{{$order->tour->name}}</h3>
                                             <div class="d-flex align-items-center mr-2">
                                                 <div class="ml-1 d-flex justify-content-between">
                                                     <h5 class="mb-0 mr-2">
@@ -29,7 +29,7 @@
                                                 <div class="ml-1 d-flex justify-content-between">
                                                     <h5 class="mb-0 mr-2">
                                                         Đơn giá
-                                                    </h5> <p>{{@$order->tour->price ?? ''}} VNĐ</p></div>
+                                                    </h5> <p>{{$order->tour->price}} VNĐ</p></div>
                                             </div>
 
                                         </div>
@@ -100,7 +100,7 @@
                                                     <i data-feather='map-pin'></i>
                                                     <span class="font-weight-bold">CTV giới thiệu</span></th>
                                                 <td class="pb-50 text-capitalize">
-                                                    {{@$order->partner->name ?? ''}}
+                                                    {{$order->partner->name}}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -120,7 +120,7 @@
                                                     </svg>
                                                     <span class="font-weight-bold">Chiết khấu KH</span></th>
                                                 <td class="pb-50 text-capitalize">
-                                                    {{@$order->tour->discount_percent_customer ?? 0}}%
+                                                    {{$order->tour->discount_percent_customer}}%
                                                 </td>
                                             </tr>
                                             <tr>
@@ -141,7 +141,7 @@
 
                                                     <span class="font-weight-bold">Chiết khấu CTV</span></th>
                                                 <td class="pb-50 text-capitalize">
-                                                    {{@$order->tour->discount_percent ?? 0}}%
+                                                    {{$order->tour->discount_percent}}%
                                                 </td>
                                             </tr>
                                         </table>

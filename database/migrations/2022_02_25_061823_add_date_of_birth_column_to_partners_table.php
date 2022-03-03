@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDiscountPercentToToursTable extends Migration
+class AddDateOfBirthColumnToPartnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddDiscountPercentToToursTable extends Migration
      */
     public function up()
     {
-        Schema::table('tours', function (Blueprint $table) {
-			$table->integer('discount_percent_customer');
+        Schema::table('partners', function (Blueprint $table) {
+            $table->string('date_of_birth');
         });
     }
 
@@ -25,8 +25,8 @@ class AddDiscountPercentToToursTable extends Migration
      */
     public function down()
     {
-        Schema::table('tours', function (Blueprint $table) {
-			$table->dropColumn();
+        Schema::table('partners', function (Blueprint $table) {
+            $table->dropColumn('date_of_birth');
         });
     }
 }
