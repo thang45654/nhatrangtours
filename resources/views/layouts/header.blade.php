@@ -50,7 +50,8 @@
     <div class="navbar-container main-menu-content" data-menu="menu-container">
         <!-- include /includes/mixins-->
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{route('admin.dashboard')}}"><i data-feather="home"></i><span
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.dashboard')}}"><a class="nav-link d-flex align-items-center" href="{{route('admin.dashboard')}}"><i
+                            data-feather="home"></i><span
                             data-i18n="Dashboards">Dashboards</span></a>
                 {{--                <ul class="dropdown-menu" data-bs-popper="none">--}}
                 {{--                    <li class="active" data-menu=""><a class="dropdown-item d-flex align-items-center" href="dashboard-analytics.html" data-bs-toggle="" data-i18n="Analytics"><i data-feather="activity"></i><span data-i18n="Analytics">Analytics</span></a>--}}
@@ -59,12 +60,12 @@
                 {{--                    </li>--}}
                 {{--                </ul>--}}
             </li>
-            <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{route("admin.orders.index")}}"><i
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.orders')}}"><a class="nav-link d-flex align-items-center" href="{{route("admin.orders.index")}}"><i
                             data-feather="package"></i><span data-i18n="Apps">Quản lý bán hàng</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="d-flex align-items-center" href="{{ route('admin.tours.index')}}" data-bs-toggle="">
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.tours')}}">
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.tour.index')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-layers">
@@ -76,350 +77,19 @@
                 </a>
             </li>
 
-            <li class="nav-item"><a class="nav-link d-flex align-items-center" href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.partners')}}"><a class="nav-link d-flex align-items-center"
+                                    href="{{ route('admin.partners.index') }}"><i data-feather="edit"></i><span
+                            data-i18n="Forms &amp; Tables">Quản lý CTV</span></a>
 
 
             </li>
-            <li class="dropdown nav-item" data-menu="dropdown"><a
-                        class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i
-                            data-feather="file-text"></i><span data-i18n="Pages">Pages</span></a>
-                <ul class="dropdown-menu" data-bs-popper="none">
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Authentication"><i data-feather="unlock"></i><span
-                                    data-i18n="Authentication">Authentication</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Login"><i data-feather="circle"></i><span
-                                            data-i18n="Login">Login</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-login-basic.html" data-bs-toggle="" data-i18n="Basic"
-                                                        target="_blank"><i data-feather="circle"></i><span
-                                                    data-i18n="Basic">Basic</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-login-cover.html" data-bs-toggle="" data-i18n="Cover"
-                                                        target="_blank"><i data-feather="circle"></i><span
-                                                    data-i18n="Cover">Cover</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Register"><i
-                                            data-feather="circle"></i><span data-i18n="Register">Register</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-register-basic.html" data-bs-toggle=""
-                                                        data-i18n="Basic" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-register-cover.html" data-bs-toggle=""
-                                                        data-i18n="Cover" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Cover">Cover</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-register-multisteps.html" data-bs-toggle=""
-                                                        data-i18n="Multi-Steps" target="_blank"><i
-                                                    data-feather="circle"></i><span
-                                                    data-i18n="Multi-Steps">Multi-Steps</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Forgot Password"><i
-                                            data-feather="circle"></i><span
-                                            data-i18n="Forgot Password">Forgot Password</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-forgot-password-basic.html" data-bs-toggle=""
-                                                        data-i18n="Basic" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-forgot-password-cover.html" data-bs-toggle=""
-                                                        data-i18n="Cover" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Cover">Cover</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Reset Password"><i
-                                            data-feather="circle"></i><span
-                                            data-i18n="Reset Password">Reset Password</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-reset-password-basic.html" data-bs-toggle=""
-                                                        data-i18n="Basic" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-reset-password-cover.html" data-bs-toggle=""
-                                                        data-i18n="Cover" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Cover">Cover</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Verify Email"><i data-feather="circle"></i><span
-                                            data-i18n="Verify Email">Verify Email</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-verify-email-basic.html" data-bs-toggle=""
-                                                        data-i18n="Basic" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-verify-email-cover.html" data-bs-toggle=""
-                                                        data-i18n="Cover" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Cover">Cover</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Two Steps"><i
-                                            data-feather="circle"></i><span data-i18n="Two Steps">Two Steps</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-two-steps-basic.html" data-bs-toggle=""
-                                                        data-i18n="Basic" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Basic">Basic</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                        href="auth-two-steps-cover.html" data-bs-toggle=""
-                                                        data-i18n="Cover" target="_blank"><i
-                                                    data-feather="circle"></i><span data-i18n="Cover">Cover</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Account Settings"><i
-                                    data-feather="settings"></i><span
-                                    data-i18n="Account Settings">Account Settings</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-account-settings-account.html" data-bs-toggle=""
-                                                data-i18n="Account"><i data-feather="circle"></i><span
-                                            data-i18n="Account">Account</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-account-settings-security.html" data-bs-toggle=""
-                                                data-i18n="Security"><i data-feather="circle"></i><span
-                                            data-i18n="Security">Security</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-account-settings-billing.html" data-bs-toggle=""
-                                                data-i18n="Billings &amp; Plans"><i data-feather="circle"></i><span
-                                            data-i18n="Billings &amp; Plans">Billings &amp; Plans</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-account-settings-notifications.html" data-bs-toggle=""
-                                                data-i18n="Notifications"><i data-feather="circle"></i><span
-                                            data-i18n="Notifications">Notifications</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-account-settings-connections.html" data-bs-toggle=""
-                                                data-i18n="Connections"><i data-feather="circle"></i><span
-                                            data-i18n="Connections">Connections</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="page-profile.html"
-                                        data-bs-toggle="" data-i18n="Profile"><i data-feather="user"></i><span
-                                    data-i18n="Profile">Profile</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="page-faq.html"
-                                        data-bs-toggle="" data-i18n="FAQ"><i data-feather="help-circle"></i><span
-                                    data-i18n="FAQ">FAQ</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="page-knowledge-base.html"
-                                        data-bs-toggle="" data-i18n="Knowledge Base"><i data-feather="info"></i><span
-                                    data-i18n="Knowledge Base">Knowledge Base</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="page-pricing.html"
-                                        data-bs-toggle="" data-i18n="Pricing"><i data-feather="dollar-sign"></i><span
-                                    data-i18n="Pricing">Pricing</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="page-license.html"
-                                        data-bs-toggle="" data-i18n="License"><i data-feather="credit-card"></i><span
-                                    data-i18n="License">License</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="page-api-key.html"
-                                        data-bs-toggle="" data-i18n="API Key"><i data-feather="key"></i><span
-                                    data-i18n="API Key">API Key</span></a>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Blog"><i data-feather="clipboard"></i><span
-                                    data-i18n="Blog">Blog</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-blog-list.html" data-bs-toggle="" data-i18n="List"><i
-                                            data-feather="circle"></i><span data-i18n="List">List</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-blog-detail.html" data-bs-toggle="" data-i18n="Detail"><i
-                                            data-feather="circle"></i><span data-i18n="Detail">Detail</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-blog-edit.html" data-bs-toggle="" data-i18n="Edit"><i
-                                            data-feather="circle"></i><span data-i18n="Edit">Edit</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Mail Template"><i data-feather="mail"></i><span
-                                    data-i18n="Mail Template">Mail Template</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="https://pixinvent.com/demo/vuexy-mail-template/mail-welcome.html"
-                                                data-bs-toggle="" data-i18n="Welcome" target="_blank"><i
-                                            data-feather="circle"></i><span data-i18n="Welcome">Welcome</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="https://pixinvent.com/demo/vuexy-mail-template/mail-reset-password.html"
-                                                data-bs-toggle="" data-i18n="Reset Password" target="_blank"><i
-                                            data-feather="circle"></i><span
-                                            data-i18n="Reset Password">Reset Password</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="https://pixinvent.com/demo/vuexy-mail-template/mail-verify-email.html"
-                                                data-bs-toggle="" data-i18n="Verify Email" target="_blank"><i
-                                            data-feather="circle"></i><span data-i18n="Verify Email">Verify Email</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="https://pixinvent.com/demo/vuexy-mail-template/mail-deactivate-account.html"
-                                                data-bs-toggle="" data-i18n="Deactivate Account" target="_blank"><i
-                                            data-feather="circle"></i><span data-i18n="Deactivate Account">Deactivate Account</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="https://pixinvent.com/demo/vuexy-mail-template/mail-invoice.html"
-                                                data-bs-toggle="" data-i18n="Invoice" target="_blank"><i
-                                            data-feather="circle"></i><span data-i18n="Invoice">Invoice</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="https://pixinvent.com/demo/vuexy-mail-template/mail-promotional.html"
-                                                data-bs-toggle="" data-i18n="Promotional" target="_blank"><i
-                                            data-feather="circle"></i><span
-                                            data-i18n="Promotional">Promotional</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Miscellaneous"><i data-feather="file"></i><span
-                                    data-i18n="Miscellaneous">Miscellaneous</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-misc-coming-soon.html" data-bs-toggle=""
-                                                data-i18n="Coming Soon" target="_blank"><i
-                                            data-feather="circle"></i><span
-                                            data-i18n="Coming Soon">Coming Soon</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-misc-not-authorized.html" data-bs-toggle=""
-                                                data-i18n="Not Authorized" target="_blank"><i data-feather="circle"></i><span
-                                            data-i18n="Not Authorized">Not Authorized</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-misc-under-maintenance.html" data-bs-toggle=""
-                                                data-i18n="Maintenance" target="_blank"><i
-                                            data-feather="circle"></i><span
-                                            data-i18n="Maintenance">Maintenance</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="page-misc-error.html" data-bs-toggle="" data-i18n="Error"
-                                                target="_blank"><i data-feather="circle"></i><span data-i18n="Error">Error</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="modal-examples.html"
-                                        data-bs-toggle="" data-i18n="Modal Examples"><i data-feather="square"></i><span
-                                    data-i18n="Modal Examples">Modal Examples</span></a>
-                    </li>
-                </ul>
+
+            <li class="nav-item {{\App\Helper\RouteHelper::isActiveRoute('admin.statistic')}}"><a
+                        class="nav-link d-flex align-items-center" href="{{route('admin.statistic')}}"><i
+                            data-feather="bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Báo cáo thống kê</span></a>
+
             </li>
-            <li class="dropdown nav-item" data-menu="dropdown"><a
-                        class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i
-                            data-feather="bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Charts &amp; Maps</span></a>
-                <ul class="dropdown-menu" data-bs-popper="none">
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Charts"><i data-feather="pie-chart"></i><span
-                                    data-i18n="Charts">Charts</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="chart-apex.html"
-                                                data-bs-toggle="" data-i18n="Apex"><i data-feather="circle"></i><span
-                                            data-i18n="Apex">Apex</span></a>
-                            </li>
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                                href="chart-chartjs.html" data-bs-toggle="" data-i18n="Chartjs"><i
-                                            data-feather="circle"></i><span data-i18n="Chartjs">Chartjs</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="maps-leaflet.html"
-                                        data-bs-toggle="" data-i18n="Leaflet Maps"><i data-feather="map"></i><span
-                                    data-i18n="Leaflet Maps">Leaflet Maps</span></a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown nav-item" data-menu="dropdown"><a
-                        class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i
-                            data-feather="box"></i><span data-i18n="Misc">Misc</span></a>
-                <ul class="dropdown-menu" data-bs-popper="none">
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                data-bs-toggle="dropdown" data-i18n="Menu Levels"><i data-feather="menu"></i><span
-                                    data-i18n="Menu Levels">Menu Levels</span></a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="#"
-                                                data-bs-toggle="" data-i18n="Second Level"><i data-feather="circle"></i><span
-                                            data-i18n="Second Level">Second Level 2.1</span></a>
-                            </li>
-                            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a
-                                        class="dropdown-item d-flex align-items-center dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown" data-i18n="Second Level"><i data-feather="circle"></i><span
-                                            data-i18n="Second Level">Second Level 2.2</span></a>
-                                <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="#"
-                                                        data-bs-toggle="" data-i18n="Third Level"><i
-                                                    data-feather="circle"></i><span data-i18n="Third Level">Third Level 3.1</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="#"
-                                                        data-bs-toggle="" data-i18n="Third Level"><i
-                                                    data-feather="circle"></i><span data-i18n="Third Level">Third Level 3.2</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="disabled" data-menu=""><a class="dropdown-item d-flex align-items-center" href=""
-                                                         data-bs-toggle="" data-i18n="Disabled Menu"><i
-                                    data-feather="eye-off"></i><span data-i18n="Disabled Menu">Disabled Menu</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                        href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation"
-                                        data-bs-toggle="" data-i18n="Documentation" target="_blank"><i
-                                    data-feather="folder"></i><span data-i18n="Documentation">Documentation</span></a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item d-flex align-items-center"
-                                        href="https://pixinvent.ticksy.com/" data-bs-toggle="" data-i18n="Raise Support"
-                                        target="_blank"><i data-feather="life-buoy"></i><span data-i18n="Raise Support">Raise Support</span></a>
-                    </li>
-                </ul>
-            </li>
+
         </ul>
     </div>
 </div>

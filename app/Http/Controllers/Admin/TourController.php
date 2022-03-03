@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminRequestTours;
+use App\Http\Requests\Admin\RequestTourUpdate;
 use App\Models\Tour;
 use App\Models\User;
 use Carbon\Carbon;
@@ -33,64 +34,59 @@ class TourController extends Controller
 
     public function store(AdminRequestTours $request)
     {
-        $data = $request->except('_token');
-        $data['slug'] = Str::slug($request->name);
 
-        $data['created_at'] =Carbon::now('Asia/Ho_Chi_Minh');
+        $tour = new Tour();
+        $tour->name = $request->name;
+        $tour->slug = str::slug($request->name);
+        $tour->price = $request->price;
+        $tour->discount_percent = $request->discount_percent;
+        $tour->discount_percent_customer = $request->discount_percent_customer;
+        $tour->save();
+        return "Bạn đã thêm thành công";
 
-        $id = Tour::insertGetId($data);
-
-        return redirect()->route('tours.index')->with('success','Bạn đã thêm thành công!!!');
 
     }
 
-    public function delete($id)
-        {
-            $tour = Tour::find($id);
-            if($tour)
-            {
-                $tour->delete();
-            }
-            return redirect()->route('tours.index')->with('success','Bạn đã xóa thành công!!!');
 
-        }
-
-    public function show($id)
+    public function getTour(Request $request)
     {
-        return view('pages.tours.show');
-    }
-//    public function edit($id)
-//    {
-//        dd('13');
-//        $tour = Tour::findOrFail($id);
-//
-//        return view('pages.tours.update',compact('tour'));
-//    }
 
-    public function update(AdminRequestTours $request , $id){
+        $tour = Tour::find($request->id);
+
+
+        return $this->response($tour, 200);
+    }
+
+    public function update(RequestTourUpdate $request , $id){
 
         $tour = Tour::find($id);
-        $data = $request->except('_token');
-        $data['slug'] = Str::slug($request->name);
 
-        $data['created_at'] =Carbon::now('Asia/Ho_Chi_Minh');
+        $tour->slug = Str::slug($request->name);
+        $tour->name = $request->name;
+        $tour->price = $request->price;
+        $tour->discount_percent = $request->discount_percent;
+        $tour->discount_percent_customer = $request->discount_percent_customer;
+        $tour->save();
+        return "Bạn đã sửa thành công";
 
-        $tour->update($data);
-
-        return redirect()->route('tours.index');
 
     }
-    public function showForm(Request $request)
+    public function show($id)
+    {
+        $tour = Tour::find($id);
+
+        return view('pages.tours.show',compact('tour'));
+    }
+    public function destroy($id)
     {
 
+        $tour = Tour::findOrFail($id);
 
-             $tour = Tour::find($request->id);
-//
-            return $this->response($tour,200);
-
+        if($tour){
+            $tour->delete();
+        }
+        return " Xoá thành công ";
 
     }
-
-
 
 }
